@@ -1,0 +1,17 @@
+# Ignore virtual environments
+.venv/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore IDE/project files
+.vscode/
+*.log
+
+# Ignore model downloads (if any)
+*.bin
+*.gguf
+
+# Ignore sensitive config
+.env
