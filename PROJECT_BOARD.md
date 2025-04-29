@@ -2,36 +2,43 @@
 
 ## 📅 Week 1: Setup & Project Kickoff
 
-- [ ] Install Python 3.10+ and set up a virtual environment
-- [ ] Install base libraries: `PyPDF2`, `python-docx`, `openpyxl`, `pandas`
-- [ ] Install and run Ollama + download a model (Mistral-7B or Llama2-7B)
-- [ ] Test sending prompt to LLM from Python (e.g., "Summarize this audit doc.")
-- [ ] Create folder structure (`docs`, `outputs`, `scripts`, `config`)
-- [ ] Push initial project to GitHub
-- [ ] Write `README.md` (project vision, structure, timeline)
+- [x] Install Python 3.10+ and set up a virtual environment
+- [x] Install base libraries: `PyPDF2`, `python-docx`, `openpyxl`, `pandas`
+- [x] Install and run Ollama + download a model (Mistral-7B or Llama2-7B)
+- [x] Test sending prompt to LLM from Python (e.g., "Summarize this audit doc.")
+- [x] Create folder structure (`docs`, `outputs`, `scripts`, `config`)
+- [x] Push initial project to GitHub
+- [x] Write `README.md` (project vision, structure, timeline)
 
 ---
 
 ## 🧾 Week 2: Document Handling
 
-- [ ] Implement PDF text extraction
-- [ ] Implement Word and Excel text extraction
-- [ ] Normalize extracted content into one format (e.g., plain text with metadata)
-- [ ] Create mock document samples in `/docs/`
-- [ ] Define checklist format for static audit completeness (`/config/checklist.yaml`)
-- [ ] Build document classifier to sort by type
+- [x] Implement PDF text extraction
+- [x] Implement Word and Excel text extraction
+- [x] Normalize extracted content into one format (e.g., plain text with metadata)
+- [x] Create mock document samples in `/docs/`
+- [x] Define checklist format for static audit completeness (`/config/checklist.yaml`)
+
 
 ---
 
-## 🤖 Week 3: LLM Integration (Static Checklist Mode)
+## 🧠 Week 3: LLM Integration (Static Checklist Mode)
 
+- [x] Build document classifier to sort by type
+- [ ] Build checklist validator (static rule-based)
+  - [ ] Read `normalized_docs.json` and `checklist.yaml`
+  - [ ] Match classified document types to checklist categories
+  - [ ] For each category, scan for required keywords in content
+  - [ ] Report results: ✓ complete / ✗ missing (per checklist item)
 - [ ] Create Python wrapper for Ollama local LLM
-- [ ] Develop prompt templates for static checklist analysis:
+- [ ] Develop prompt templates for static checklist analysis
   - [ ] Completeness check
   - [ ] Required fields verification
 - [ ] Parse LLM responses into structured JSON output
 - [ ] Add error handling and response scoring
 - [ ] Finalize static checklist validation loop
+
 
 ---
 

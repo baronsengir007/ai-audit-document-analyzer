@@ -1,0 +1,29 @@
+audit_completeness_checklist:
+  - id: invoices
+    name: Monthly Invoices
+    required_keywords:
+      - factuurnummer
+      - factuurdatum
+      - totaal
+      - internet
+      - abonnement
+
+  - id: project_data
+    name: Project Data Sheet
+    required_keywords:
+      - epic
+      - journey
+      - state
+      - azure
+      - change
+
+  - id: audit_rfi
+    name: Audit Request for Information
+    required_keywords:
+      - project documentation
+      - governance
+      - implementation
+      - risk
+      - metrics
+      - dependencies
+
