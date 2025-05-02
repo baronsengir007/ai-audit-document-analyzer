@@ -54,7 +54,7 @@ def scan_and_report_keywords(documents, checklist_map, type_to_checklist_id):
     """
     results = []
     for doc in documents:
-        doc_type = doc.get("type")
+        doc_type = doc.get("classification")  # Use classification instead of type
         checklist_id = type_to_checklist_id.get(doc_type)
         if not checklist_id or checklist_id not in checklist_map:
             logging.warning(f"No checklist category found for document '{doc['filename']}' (type: {doc_type}).")
@@ -79,37 +79,24 @@ def format_report(results):
         doc = result["document"]
         present = result["present_keywords"]
         missing = result["missing_keywords"]
-        print(f"{doc['filename']} ({doc['type']}):")
+        print(f"{doc['filename']} ({doc.get('classification', 'unknown')}):")
         if present:
             print("  ✓ Present:", ", ".join(present))
         if missing:
             print("  ✗ Missing:", ", ".join(missing))
 
-# Example usage (for testing)
 if __name__ == "__main__":
-    import sys
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s [%(levelname)s] %(message)s"
-    )
-    # Use the loader function if present, else fallback to old code
-    try:
-        from checklist_validator import load_normalized_docs_and_checklist
-        docs, checklist = load_normalized_docs_and_checklist()
-    except ImportError:
-        with open("outputs/normalized_docs.json", "r", encoding="utf-8") as f:
-            docs = json.load(f)
-        with open("config/checklist.yaml", "r", encoding="utf-8") as f:
-            checklist = yaml.safe_load(f)["audit_completeness_checklist"]
-
-    # Build a mapping from checklist id to required keywords
-    checklist_map = {item["id"]: item["required_keywords"] for item in checklist}
-    # Define mapping from normalized doc 'type' to checklist 'id'
-    type_to_checklist_id = {
-        "pdf": "invoices",
-        "excel": "project_data",
-        "word": "audit_rfi",
+    # Example usage
+    test_doc = {
+        "filename": "test.pdf",
+        "classification": "invoice",
+        "content": "This is an invoice for $100. Total amount due: $100"
     }
-
-    results = scan_and_report_keywords(docs, checklist_map, type_to_checklist_id)
+    test_checklist = {
+        "invoices": ["invoice", "total", "amount"]
+    }
+    test_mapping = {
+        "invoice": "invoices"
+    }
+    results = scan_and_report_keywords([test_doc], test_checklist, test_mapping)
     format_report(results)

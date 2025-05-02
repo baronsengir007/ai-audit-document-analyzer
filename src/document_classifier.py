@@ -1,19 +1,19 @@
 import json
 from pathlib import Path
 
-# Load the normalized documents
-with open("outputs/normalized_docs.json", "r", encoding="utf-8") as f:
-    documents = json.load(f)
-
 def classify_document(doc):
+    """
+    Classify a document based on its content.
+    Returns one of: invoice, audit_rfi, project_data, checklist, policy_requirements, unknown
+    """
     content = doc["content"].lower()
 
     # Simple keyword-based classification
-    if "factuur" in content or "kpn" in content:
+    if "invoice" in content or "total" in content or "amount" in content:
         return "invoice"
-    elif "request for information" in content and "audit" in content:
+    elif "audit" in content and ("requirement" in content or "compliance" in content):
         return "audit_rfi"
-    elif "epic" in content or "change" in content or "state" in content:
+    elif "project" in content and ("status" in content or "milestone" in content):
         return "project_data"
     elif "checklist" in content:
         return "checklist"
@@ -22,8 +22,10 @@ def classify_document(doc):
     else:
         return "unknown"
 
-# Classify and print results
-print("\n--- Document Classification Results ---\n")
-for doc in documents:
-    classification = classify_document(doc)
-    print(f"{doc['filename']}: {classification}")
+if __name__ == "__main__":
+    # Example usage
+    test_doc = {
+        "filename": "test.pdf",
+        "content": "This is an invoice for $100. Total amount due: $100"
+    }
+    print(f"Classification: {classify_document(test_doc)}")

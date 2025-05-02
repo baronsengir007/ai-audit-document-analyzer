@@ -1,0 +1,63 @@
+[
+  {
+    "filename": "KPN FEB 2025.pdf",
+    "status": "complete",
+    "missing": [],
+    "present": [
+      "factuurnummer",
+      "factuurdatum",
+      "totaal",
+      "internet",
+      "abonnement"
+    ]
+  },
+  {
+    "filename": "KPN JAN 2025.pdf",
+    "status": "complete",
+    "missing": [],
+    "present": [
+      "factuurnummer",
+      "factuurdatum",
+      "totaal",
+      "internet",
+      "abonnement"
+    ]
+  },
+  {
+    "filename": "KPN MAR 2025.pdf",
+    "status": "complete",
+    "missing": [],
+    "present": [
+      "factuurnummer",
+      "factuurdatum",
+      "totaal",
+      "internet",
+      "abonnement"
+    ]
+  },
+  {
+    "filename": "pm-Project Alpha.xlsx",
+    "status": "complete",
+    "missing": [],
+    "present": [
+      "epic",
+      "journey",
+      "state",
+      "azure",
+      "change"
+    ]
+  },
+  {
+    "filename": "Request for Information Alpha.docx",
+    "status": "complete",
+    "missing": [],
+    "present": [
+      "project documentation",
+      "governance",
+      "implementation",
+      "risk",
+      "metrics",
+      "dependencies"
+    ]
+  }
+]

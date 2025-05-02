@@ -39,14 +39,14 @@
 - [x] Add error handling and response scoring
 - [x] Finalize static checklist validation loop
 - [x] Prepare static mode for integration with dynamic mode (unified interface/data structure)
-- [ ] Define consistent output format for both static and dynamic modes
+- [x] Define consistent output format for both static and dynamic modes
 
 
 ---
 
 ## 🧠 Week 4: Policy-Driven Audit Analysis (Dynamic Mode)
 
-- [ ] Build `policy_parser.py` to extract compliance requirements from a policy document using LLM
+- [x] Build `policy_parser.py` to extract compliance requirements from a policy document using LLM
 - [ ] Prompt LLM: "List all audit/compliance requirements from this document"
 - [ ] Store extracted checklist dynamically (in memory or `/config/policy_requirements.yaml`)
 - [ ] Feed audit documents + extracted rules into compliance evaluator

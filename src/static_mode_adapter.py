@@ -2,6 +2,7 @@ import time
 from pathlib import Path
 from typing import Dict, List, Any
 from concurrent.futures import ThreadPoolExecutor
+import json
 
 from interfaces import (
     Document,
@@ -17,6 +18,13 @@ from document_processor import (
 )
 from document_classifier import classify_document
 from checklist_validator import scan_and_report_keywords
+from output_format import (
+    ValidationStatus,
+    ValidationMetadata,
+    ValidationItem,
+    ValidationCategory,
+    ValidationResultFormatter
+)
 
 class StaticDocumentProcessor(DocumentProcessor):
     """Adapter for static mode document processing"""
@@ -49,7 +57,7 @@ class StaticDocumentProcessor(DocumentProcessor):
             source_path=doc_path
         )
 
-class StaticValidationStrategy(ValidationStrategy):
+class StaticValidationStrategy:
     """Adapter for static mode validation strategy"""
     def __init__(self, checklist_map: Dict[str, List[str]], type_to_checklist_id: Dict[str, str]):
         self.checklist_map = checklist_map
@@ -61,11 +69,14 @@ class StaticValidationStrategy(ValidationStrategy):
             checklist_id = self.type_to_checklist_id.get(document.classification)
             if not checklist_id:
                 return ValidationResult(
-                    document=document,
-                    status="unknown_type",
-                    validation_results={},
-                    mode="static",
-                    timestamp=time.time()
+                    document_id=document.filename,
+                    document_name=document.filename,
+                    document_type=document.classification,
+                    status=ValidationStatus.UNKNOWN,
+                    metadata=ValidationMetadata(
+                        mode="static",
+                        warnings=["Unknown document type"]
+                    )
                 )
 
             # Scan for keywords
@@ -77,35 +88,73 @@ class StaticValidationStrategy(ValidationStrategy):
 
             if not results:
                 return ValidationResult(
-                    document=document,
-                    status="unknown_type",
-                    validation_results={},
-                    mode="static",
-                    timestamp=time.time()
+                    document_id=document.filename,
+                    document_name=document.filename,
+                    document_type=document.classification,
+                    status=ValidationStatus.UNKNOWN,
+                    metadata=ValidationMetadata(
+                        mode="static",
+                        warnings=["No validation results found"]
+                    )
                 )
 
             result = results[0]
-            status = "complete" if not result["missing_keywords"] else "incomplete"
+            
+            # Create validation items
+            items = []
+            for keyword in result["present_keywords"]:
+                items.append(
+                    ValidationItem(
+                        id=f"keyword_{keyword}",
+                        name=keyword,
+                        status=ValidationStatus.PASSED,
+                        confidence_score=1.0
+                    )
+                )
+            
+            for keyword in result["missing_keywords"]:
+                items.append(
+                    ValidationItem(
+                        id=f"keyword_{keyword}",
+                        name=keyword,
+                        status=ValidationStatus.FAILED,
+                        confidence_score=1.0,
+                        errors=[f"Required keyword '{keyword}' not found"]
+                    )
+                )
+
+            # Create category
+            category = ValidationCategory(
+                id=checklist_id,
+                name=checklist_id,
+                status=ValidationStatus.PASSED if not result["missing_keywords"] else ValidationStatus.FAILED,
+                confidence_score=1.0,
+                items=items
+            )
+
+            # Determine overall status
+            status = ValidationStatus.PASSED if not result["missing_keywords"] else ValidationStatus.FAILED
 
             return ValidationResult(
-                document=document,
+                document_id=document.filename,
+                document_name=document.filename,
+                document_type=document.classification,
                 status=status,
-                validation_results={
-                    "present_keywords": result["present_keywords"],
-                    "missing_keywords": result["missing_keywords"]
-                },
-                mode="static",
-                timestamp=time.time()
+                metadata=ValidationMetadata(mode="static"),
+                categories=[category]
             )
 
         except Exception as e:
             return ValidationResult(
-                document=document,
-                status="error",
-                validation_results={},
-                mode="static",
-                timestamp=time.time(),
-                error=str(e)
+                document_id=document.filename,
+                document_name=document.filename,
+                document_type=document.classification,
+                status=ValidationStatus.ERROR,
+                metadata=ValidationMetadata(
+                    mode="static",
+                    warnings=[str(e)]
+                ),
+                errors=[str(e)]
             )
 
     def get_checklist(self) -> Dict[str, Any]:
@@ -137,9 +186,20 @@ class StaticValidationMode(ValidationMode):
         return results
 
     def save_results(self, results: List[ValidationResult], output_path: Path) -> None:
-        from interfaces import ValidationResultSerializer
-        serialized_results = [ValidationResultSerializer.to_json(r) for r in results]
+        # Save each result individually
+        for result in results:
+            result_path = output_path.parent / f"{result.document_id}_validation.json"
+            ValidationResultFormatter.save_to_file(result, result_path)
         
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(serialized_results, f, ensure_ascii=False, indent=2) 
+        # Save summary
+        summary = {
+            "total_documents": len(results),
+            "passed_documents": sum(1 for r in results if r.status == ValidationStatus.PASSED),
+            "failed_documents": sum(1 for r in results if r.status == ValidationStatus.FAILED),
+            "unknown_documents": sum(1 for r in results if r.status == ValidationStatus.UNKNOWN),
+            "error_documents": sum(1 for r in results if r.status == ValidationStatus.ERROR)
+        }
+        
+        summary_path = output_path.parent / "validation_summary.json"
+        with open(summary_path, "w", encoding="utf-8") as f:
+            json.dump(summary, f, ensure_ascii=False, indent=2) 
