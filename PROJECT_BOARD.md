@@ -37,8 +37,8 @@
   - [x] Required fields verification
 - [x] Parse LLM responses into structured JSON output
 - [x] Add error handling and response scoring
-- [ ] Finalize static checklist validation loop
-- [ ] Prepare static mode for integration with dynamic mode (unified interface/data structure)
+- [x] Finalize static checklist validation loop
+- [x] Prepare static mode for integration with dynamic mode (unified interface/data structure)
 - [ ] Define consistent output format for both static and dynamic modes
 
 
