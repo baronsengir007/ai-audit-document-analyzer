@@ -26,18 +26,20 @@
 ## 🧠 Week 3: LLM Integration (Static Checklist Mode)
 
 - [x] Build document classifier to sort by type
-- [ ] Build checklist validator (static rule-based)
-  - [ ] Read `normalized_docs.json` and `checklist.yaml`
-  - [ ] Match classified document types to checklist categories
-  - [ ] For each category, scan for required keywords in content
-  - [ ] Report results: ✓ complete / ✗ missing (per checklist item)
-- [ ] Create Python wrapper for Ollama local LLM
-- [ ] Develop prompt templates for static checklist analysis
-  - [ ] Completeness check
-  - [ ] Required fields verification
-- [ ] Parse LLM responses into structured JSON output
-- [ ] Add error handling and response scoring
+- [x] Build checklist validator (static rule-based)
+  - [x] Read `normalized_docs.json` and `checklist.yaml`
+  - [x] Match classified document types to checklist categories
+  - [x] For each category, scan for required keywords in content
+  - [x] Report results: ✓ complete / ✗ missing (per checklist item)
+- [x] Create Python wrapper for Ollama local LLM (for both static and dynamic modes)
+- [x] Develop prompt templates for static checklist analysis
+  - [x] Completeness check
+  - [x] Required fields verification
+- [x] Parse LLM responses into structured JSON output
+- [x] Add error handling and response scoring
 - [ ] Finalize static checklist validation loop
+- [ ] Prepare static mode for integration with dynamic mode (unified interface/data structure)
+- [ ] Define consistent output format for both static and dynamic modes
 
 
 ---
@@ -45,12 +47,16 @@
 ## 🧠 Week 4: Policy-Driven Audit Analysis (Dynamic Mode)
 
 - [ ] Build `policy_parser.py` to extract compliance requirements from a policy document using LLM
-- [ ] Prompt LLM: “List all audit/compliance requirements from this document”
+- [ ] Prompt LLM: "List all audit/compliance requirements from this document"
 - [ ] Store extracted checklist dynamically (in memory or `/config/policy_requirements.yaml`)
 - [ ] Feed audit documents + extracted rules into compliance evaluator
-- [ ] Prompt LLM: “Does this doc satisfy requirement X? Y/N and explain”
+- [ ] Prompt LLM: "Does this doc satisfy requirement X? Y/N and explain"
 - [ ] Generate full compliance matrix as output report
 - [ ] Compare results of static vs. dynamic modes
+- [ ] Integrate static and dynamic modes into a unified workflow
+- [ ] Handle edge cases (e.g., LLM extraction failures, unmatched documents)
+- [ ] Test dynamic mode with real/simulated documents
+- [ ] Define and implement output format for compliance matrix (e.g., JSON, CSV, visual report)
 
 ---
 

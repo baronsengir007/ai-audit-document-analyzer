@@ -12,17 +12,25 @@ This tool reduces manual work in audit reviews and demonstrates how AI can be us
 
 ---
 
-## 📁 Folder Structure
+## 📁 Project Structure
 
 ```
 TNO AI AUDIT DOCUMENT SCANNER/
-├── main.py              # Entry point
-├── scripts/             # Python logic (document reader, AI interface)
-├── docs/                # Input documents for testing
-├── outputs/             # Results (reports, summaries)
-├── config/              # Document checklists, AI prompt configs
-├── PROJECT_BOARD.md     # Task board to track progress
-└── README.md            # Project overview (this file)
+├── src/                    # Source code
+│   ├── document_loader.py  # Document loading and preprocessing
+│   ├── document_classifier.py  # Document type classification
+│   ├── llm_wrapper.py     # LLM integration and prompt management
+│   ├── llm_error_handler.py  # Error handling and recovery
+│   ├── llm_response_scorer.py  # Response quality assessment
+│   ├── json_parser.py     # JSON response parsing and validation
+│   ├── checklist_validator.py  # Static checklist validation
+│   └── test_*.py          # Unit tests
+├── docs/                   # Input documents for testing
+├── outputs/               # Results (reports, summaries)
+├── config/                # Configuration files
+│   └── checklist.yaml     # Static audit checklist
+├── PROJECT_BOARD.md       # Task board to track progress
+└── README.md              # Project overview (this file)
 ```
 
 ---
@@ -31,38 +39,106 @@ TNO AI AUDIT DOCUMENT SCANNER/
 
 - Python 3.10+
 - Local LLM (Ollama + Mistral-7B or Llama-2-7B)
-- Libraries:
+- Core Libraries:
   - PyPDF2 (PDF extraction)
   - python-docx (Word)
   - openpyxl (Excel)
-  - pandas (dataframes)
-- Optional:
-  - Streamlit (UI)
+  - backoff (retry mechanisms)
+  - jsonschema (JSON validation)
+- Development Tools:
+  - pytest (testing)
+  - black (code formatting)
+  - flake8 (linting)
+  - mypy (type checking)
+
+---
+
+## 🚀 Current Progress
+
+### ✅ Completed Features
+- Document loading and preprocessing
+- Document type classification
+- LLM integration with Ollama
+- Prompt template management
+- JSON response parsing
+- Comprehensive error handling
+- Response quality scoring
+- Static checklist validation
+
+### 🚧 In Progress
+- Finalizing static checklist validation loop
+- Preparing for dynamic mode integration
+- Defining unified output format
 
 ---
 
 ## 📄 Example Output
 
-Imagine you drop three audit docs into the tool:
+The system generates structured JSON reports with:
+- Document analysis results
+- Checklist compliance status
+- Confidence scores
+- Error handling details
+- Quality metrics
 
-- ✅ `invoice_2023.pdf` → All checks passed
-- ❌ `contract.docx` → Missing approval signature
-- ✅ `summary.xlsx` → Budget fields found
-
-The tool would generate a report like this and export it to `/outputs`.
+Example output structure:
+```json
+{
+  "document_id": "invoice_2023.pdf",
+  "analysis": {
+    "completeness": 0.95,
+    "required_fields": ["date", "amount", "approval"],
+    "missing_fields": [],
+    "confidence_score": 0.92
+  },
+  "metadata": {
+    "processing_time": "0.5s",
+    "error_count": 0,
+    "warnings": []
+  }
+}
+```
 
 ---
 
-## 🚀 Long-Term Vision
+## 🛠️ Development Setup
 
-This is the foundation for:
-- AI-enhanced audit workflows
-- Tools you can bring to TNO and beyond
-- A future consulting practice around AI adoption in compliance
+1. Create and activate virtual environment:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # Linux/Mac
+   .venv\Scripts\activate     # Windows
+   ```
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Set up Ollama:
+   ```bash
+   # Install Ollama
+   # Download model: ollama pull mistral
+   ```
+
+4. Run tests:
+   ```bash
+   pytest src/
+   ```
 
 ---
 
 ## 🗓️ Timeline
 
-**Working prototype deadline:**  
-May 2025 (5-week development sprint)
+**Current Phase:** Week 3 - LLM Integration (Static Checklist Mode)
+- ✅ Document handling and preprocessing
+- ✅ LLM integration and prompt management
+- ✅ Error handling and response scoring
+- 🚧 Finalizing static mode
+- 📅 Next: Dynamic mode implementation
+
+---
+
+## 📝 License
+
+This software is proprietary and confidential. All rights reserved. Unauthorized use, reproduction, or distribution of this software is strictly prohibited. For licensing inquiries, please contact TNO.
