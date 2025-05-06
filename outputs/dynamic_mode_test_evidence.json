@@ -1,0 +1,283 @@
+{
+  "test_suite": "Dynamic Mode Test with 23 Document Scenarios",
+  "execution_timestamp": "2025-05-06T08:40:05.813357",
+  "execution_environment": {
+    "system": "win32",
+    "python_version": "3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]"
+  },
+  "test_configuration": {
+    "total_document_scenarios": 23,
+    "total_requirements": 12,
+    "test_output_directory": "outputs"
+  },
+  "test_results": {
+    "summary": {
+      "test_timestamp": "2025-05-06T08:40:05.809789",
+      "total_documents": 23,
+      "passed_documents": 4,
+      "failed_documents": 19,
+      "total_processing_time": 0.087307,
+      "average_processing_time": 0.0037959565217391303,
+      "average_confidence": 0.795079365079365,
+      "documents_by_type": {
+        "policy": 14,
+        "procedure": 2,
+        "guideline": 2,
+        "standard": 1,
+        "unknown": 2,
+        "report": 1,
+        "memo": 1
+      },
+      "compliance_by_type": {
+        "policy": {
+          "total": 14,
+          "compliant": 3,
+          "non_compliant": 11
+        },
+        "procedure": {
+          "total": 2,
+          "compliant": 0,
+          "non_compliant": 2
+        },
+        "guideline": {
+          "total": 2,
+          "compliant": 0,
+          "non_compliant": 2
+        },
+        "standard": {
+          "total": 1,
+          "compliant": 0,
+          "non_compliant": 1
+        },
+        "unknown": {
+          "total": 2,
+          "compliant": 0,
+          "non_compliant": 2
+        },
+        "report": {
+          "total": 1,
+          "compliant": 0,
+          "non_compliant": 1
+        },
+        "memo": {
+          "total": 1,
+          "compliant": 1,
+          "non_compliant": 0
+        }
+      }
+    },
+    "individual_results": [
+      {
+        "document_id": "password_policy.pdf",
+        "classification": "policy",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.8375
+      },
+      {
+        "document_id": "partial_password_policy.pdf",
+        "classification": "policy",
+        "is_compliant": true,
+        "compliance_level": "partially_compliant",
+        "confidence": 0.7
+      },
+      {
+        "document_id": "weak_password_policy.pdf",
+        "classification": "policy",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.7999999999999999
+      },
+      {
+        "document_id": "data_encryption_policy.pdf",
+        "classification": "policy",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.875
+      },
+      {
+        "document_id": "data_retention_policy.pdf",
+        "classification": "policy",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.8666666666666667
+      },
+      {
+        "document_id": "incident_response_policy.pdf",
+        "classification": "policy",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.8333333333333334
+      },
+      {
+        "document_id": "physical_security_policy.pdf",
+        "classification": "policy",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.8200000000000001
+      },
+      {
+        "document_id": "security_training_policy.pdf",
+        "classification": "policy",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.8333333333333334
+      },
+      {
+        "document_id": "vendor_management_policy.pdf",
+        "classification": "policy",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.8200000000000001
+      },
+      {
+        "document_id": "data_breach_procedure.docx",
+        "classification": "procedure",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.7666666666666666
+      },
+      {
+        "document_id": "remote_access_guidelines.pdf",
+        "classification": "guideline",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.74
+      },
+      {
+        "document_id": "cloud_security_policy.pdf",
+        "classification": "policy",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.8
+      },
+      {
+        "document_id": "mobile_device_policy.pdf",
+        "classification": "policy",
+        "is_compliant": true,
+        "compliance_level": "partially_compliant",
+        "confidence": 0.7
+      },
+      {
+        "document_id": "network_security_standards.pdf",
+        "classification": "standard",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.7857142857142857
+      },
+      {
+        "document_id": "sdlc_security_policy.pdf",
+        "classification": "policy",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.8111111111111112
+      },
+      {
+        "document_id": "data_classification_policy.pdf",
+        "classification": "policy",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.86
+      },
+      {
+        "document_id": "acceptable_use_policy.pdf",
+        "classification": "policy",
+        "is_compliant": true,
+        "compliance_level": "partially_compliant",
+        "confidence": 0.7
+      },
+      {
+        "document_id": "offboarding_checklist.xlsx",
+        "classification": "procedure",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.8
+      },
+      {
+        "document_id": "empty_document.pdf",
+        "classification": "unknown",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.8000000000000002
+      },
+      {
+        "document_id": "malformed_document.pdf",
+        "classification": "unknown",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.8000000000000002
+      },
+      {
+        "document_id": "quarterly_report.pdf",
+        "classification": "report",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.8000000000000002
+      },
+      {
+        "document_id": "shared_accounts_memo.pdf",
+        "classification": "memo",
+        "is_compliant": true,
+        "compliance_level": "partially_compliant",
+        "confidence": 0.7
+      },
+      {
+        "document_id": "mixed_compliance_policy.pdf",
+        "classification": "guideline",
+        "is_compliant": false,
+        "compliance_level": "non_compliant",
+        "confidence": 0.8375
+      }
+    ],
+    "document_types": [
+      "policy",
+      "memo",
+      "procedure",
+      "guideline",
+      "unknown",
+      "report",
+      "standard"
+    ],
+    "compliance_rates": {
+      "overall": 0.17391304347826086,
+      "by_type": {
+        "policy": {
+          "total": 14,
+          "compliant": 3,
+          "non_compliant": 11
+        },
+        "procedure": {
+          "total": 2,
+          "compliant": 0,
+          "non_compliant": 2
+        },
+        "guideline": {
+          "total": 2,
+          "compliant": 0,
+          "non_compliant": 2
+        },
+        "standard": {
+          "total": 1,
+          "compliant": 0,
+          "non_compliant": 1
+        },
+        "unknown": {
+          "total": 2,
+          "compliant": 0,
+          "non_compliant": 2
+        },
+        "report": {
+          "total": 1,
+          "compliant": 0,
+          "non_compliant": 1
+        },
+        "memo": {
+          "total": 1,
+          "compliant": 1,
+          "non_compliant": 0
+        }
+      }
+    }
+  },
+  "log_file": "logs\\dynamic_mode_test.log"
+}

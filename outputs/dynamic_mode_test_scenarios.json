@@ -1,0 +1,166 @@
+{
+  "total_document_scenarios": 23,
+  "document_scenarios": [
+    {
+      "id": 1,
+      "document_id": "password_policy.pdf",
+      "classification": "policy",
+      "result": "FAIL",
+      "confidence": 0.8375
+    },
+    {
+      "id": 2,
+      "document_id": "partial_password_policy.pdf",
+      "classification": "policy",
+      "result": "PASS",
+      "confidence": 0.7
+    },
+    {
+      "id": 3,
+      "document_id": "weak_password_policy.pdf",
+      "classification": "policy",
+      "result": "FAIL",
+      "confidence": 0.7999999999999999
+    },
+    {
+      "id": 4,
+      "document_id": "data_encryption_policy.pdf",
+      "classification": "policy",
+      "result": "FAIL",
+      "confidence": 0.875
+    },
+    {
+      "id": 5,
+      "document_id": "data_retention_policy.pdf",
+      "classification": "policy",
+      "result": "FAIL",
+      "confidence": 0.8666666666666667
+    },
+    {
+      "id": 6,
+      "document_id": "incident_response_policy.pdf",
+      "classification": "policy",
+      "result": "FAIL",
+      "confidence": 0.8333333333333334
+    },
+    {
+      "id": 7,
+      "document_id": "physical_security_policy.pdf",
+      "classification": "policy",
+      "result": "FAIL",
+      "confidence": 0.8200000000000001
+    },
+    {
+      "id": 8,
+      "document_id": "security_training_policy.pdf",
+      "classification": "policy",
+      "result": "FAIL",
+      "confidence": 0.8333333333333334
+    },
+    {
+      "id": 9,
+      "document_id": "vendor_management_policy.pdf",
+      "classification": "policy",
+      "result": "FAIL",
+      "confidence": 0.8200000000000001
+    },
+    {
+      "id": 10,
+      "document_id": "data_breach_procedure.docx",
+      "classification": "procedure",
+      "result": "FAIL",
+      "confidence": 0.7666666666666666
+    },
+    {
+      "id": 11,
+      "document_id": "remote_access_guidelines.pdf",
+      "classification": "guideline",
+      "result": "FAIL",
+      "confidence": 0.74
+    },
+    {
+      "id": 12,
+      "document_id": "cloud_security_policy.pdf",
+      "classification": "policy",
+      "result": "FAIL",
+      "confidence": 0.8
+    },
+    {
+      "id": 13,
+      "document_id": "mobile_device_policy.pdf",
+      "classification": "policy",
+      "result": "PASS",
+      "confidence": 0.7
+    },
+    {
+      "id": 14,
+      "document_id": "network_security_standards.pdf",
+      "classification": "standard",
+      "result": "FAIL",
+      "confidence": 0.7857142857142857
+    },
+    {
+      "id": 15,
+      "document_id": "sdlc_security_policy.pdf",
+      "classification": "policy",
+      "result": "FAIL",
+      "confidence": 0.8111111111111112
+    },
+    {
+      "id": 16,
+      "document_id": "data_classification_policy.pdf",
+      "classification": "policy",
+      "result": "FAIL",
+      "confidence": 0.86
+    },
+    {
+      "id": 17,
+      "document_id": "acceptable_use_policy.pdf",
+      "classification": "policy",
+      "result": "PASS",
+      "confidence": 0.7
+    },
+    {
+      "id": 18,
+      "document_id": "offboarding_checklist.xlsx",
+      "classification": "procedure",
+      "result": "FAIL",
+      "confidence": 0.8
+    },
+    {
+      "id": 19,
+      "document_id": "empty_document.pdf",
+      "classification": "unknown",
+      "result": "FAIL",
+      "confidence": 0.8000000000000002
+    },
+    {
+      "id": 20,
+      "document_id": "malformed_document.pdf",
+      "classification": "unknown",
+      "result": "FAIL",
+      "confidence": 0.8000000000000002
+    },
+    {
+      "id": 21,
+      "document_id": "quarterly_report.pdf",
+      "classification": "report",
+      "result": "FAIL",
+      "confidence": 0.8000000000000002
+    },
+    {
+      "id": 22,
+      "document_id": "shared_accounts_memo.pdf",
+      "classification": "memo",
+      "result": "PASS",
+      "confidence": 0.7
+    },
+    {
+      "id": 23,
+      "document_id": "mixed_compliance_policy.pdf",
+      "classification": "guideline",
+      "result": "FAIL",
+      "confidence": 0.8375
+    }
+  ]
+}

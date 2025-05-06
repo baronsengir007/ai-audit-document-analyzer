@@ -1,0 +1,15 @@
+Document ID,DOC-001
+Document Name,Security Policy.pdf
+Document Type,policy
+Overall Status,ValidationStatus.PARTIAL
+Confidence,0.92
+
+Status Counts
+Passed,3
+Partial,3
+Failed,2
+
+Category,Status,Confidence,Items,Passed,Partial,Failed,Other
+Access Control,ValidationStatus.PARTIAL,0.90,3,1,1,1,0
+Data Protection,ValidationStatus.PASSED,0.89,3,2,1,0,0
+Incident Response,ValidationStatus.FAILED,0.82,2,0,1,1,0

@@ -1,0 +1,25 @@
+{
+  "document_id": "offboarding_checklist.xlsx",
+  "classification": "procedure",
+  "is_compliant": false,
+  "compliance_level": "non_compliant",
+  "confidence": 0.8,
+  "mode_used": "dynamic",
+  "processing_time": 0.5,
+  "details": {
+    "overall_compliance": "non_compliant",
+    "requirement_results": {
+      "REQ003": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      },
+      "REQ008": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      }
+    },
+    "processing_time": 0.5
+  }
+}

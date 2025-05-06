@@ -1,0 +1,12 @@
+Document ID,Document Name,REQ001,REQ002,REQ003,REQ004,REQ005
+DOC-001,Security Policy.pdf,✓ fully_compliant (0.95),✗ non_compliant (0.90),✓ fully_compliant (0.92),⚠ partially_compliant (0.75),✗ non_compliant (0.88)
+DOC-002,Disaster Recovery Plan.pdf,- not_applicable (0.95),- not_applicable (0.95),⚠ partially_compliant (0.85),✓ fully_compliant (0.92),⚠ partially_compliant (0.80)
+DOC-003,Access Control Standard.pdf,✓ fully_compliant (0.98),✓ fully_compliant (0.95),⚠ partially_compliant (0.75),- not_applicable (0.90),- not_applicable (0.90)
+
+Summary
+Overall Compliance,partially_compliant
+fully_compliant,Count,5
+partially_compliant,Count,4
+non_compliant,Count,2
+not_applicable,Count,4
+indeterminate,Count,0

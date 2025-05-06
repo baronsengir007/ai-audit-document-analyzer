@@ -1,0 +1,30 @@
+{
+  "document_id": "data_breach_procedure.docx",
+  "classification": "procedure",
+  "is_compliant": false,
+  "compliance_level": "non_compliant",
+  "confidence": 0.7666666666666666,
+  "mode_used": "dynamic",
+  "processing_time": 0.5,
+  "details": {
+    "overall_compliance": "non_compliant",
+    "requirement_results": {
+      "REQ004": {
+        "compliance_level": "partially_compliant",
+        "confidence_score": 0.7,
+        "justification": "Document partially complies with requirement, containing 1 matching keywords"
+      },
+      "REQ006": {
+        "compliance_level": "partially_compliant",
+        "confidence_score": 0.7,
+        "justification": "Document partially complies with requirement, containing 1 matching keywords"
+      },
+      "REQ012": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.9,
+        "justification": "Document mentions prohibited elements related to Data Protection"
+      }
+    },
+    "processing_time": 0.5
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "document_id": "empty_document.pdf",
+  "classification": "unknown",
+  "is_compliant": false,
+  "compliance_level": "non_compliant",
+  "confidence": 0.8000000000000002,
+  "mode_used": "dynamic",
+  "processing_time": 0.5,
+  "details": {
+    "overall_compliance": "non_compliant",
+    "requirement_results": {
+      "REQ001": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      },
+      "REQ002": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      },
+      "REQ003": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      },
+      "REQ004": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      },
+      "REQ005": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      },
+      "REQ006": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      },
+      "REQ007": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      },
+      "REQ008": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      },
+      "REQ009": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      },
+      "REQ010": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      },
+      "REQ011": {
+        "compliance_level": "fully_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not mention any prohibited elements"
+      },
+      "REQ012": {
+        "compliance_level": "fully_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not mention any prohibited elements"
+      }
+    },
+    "processing_time": 0.5
+  }
+}

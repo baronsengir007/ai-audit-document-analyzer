@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Compliance Matrix</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; position: sticky; top: 0; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        tr:hover { background-color: #f2f2f2; }
+        .header-row th { text-align: center; font-weight: bold; }
+        .tooltip { position: relative; display: inline-block; }
+        .tooltip .tooltiptext { visibility: hidden; width: 200px; background-color: #555;
+                             color: #fff; text-align: center; border-radius: 6px;
+                             padding: 5px; position: absolute; z-index: 1;
+                             bottom: 125%; left: 50%; margin-left: -100px;
+                             opacity: 0; transition: opacity 0.3s; }
+        .tooltip:hover .tooltiptext { visibility: visible; opacity: 1; }
+        .fully_compliant { background-color: #4CAF50; color: white; text-align: center; }
+        .partially_compliant { background-color: #FFC107; text-align: center; }
+        .non_compliant { background-color: #F44336; color: white; text-align: center; }
+        .not_applicable { background-color: #9E9E9E; color: white; text-align: center; }
+        .indeterminate { background-color: #2196F3; color: white; text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>Compliance Matrix Report</h1>
+    <p>Generated: 2025-05-06 09:01:41</p>
+    <h2>Compliance Matrix</h2>
+    <table>
+        <tr class='header-row'>
+            <th rowspan='2'>Document ID</th>
+            <th rowspan='2'>Document Name</th>
+            <th colspan='5'>Requirements</th>
+        </tr>
+        <tr>
+            <th><div class='tooltip'>REQ001<span class='tooltiptext'>Type: mandatory<br>Priority: high<br>Description: Password Policy</span></div></th>
+            <th><div class='tooltip'>REQ002<span class='tooltiptext'>Type: mandatory<br>Priority: critical<br>Description: Two-Factor Authentication</span></div></th>
+            <th><div class='tooltip'>REQ003<span class='tooltiptext'>Type: mandatory<br>Priority: critical<br>Description: Data Encryption</span></div></th>
+            <th><div class='tooltip'>REQ004<span class='tooltiptext'>Type: mandatory<br>Priority: high<br>Description: Incident Response Plan</span></div></th>
+            <th><div class='tooltip'>REQ005<span class='tooltiptext'>Type: mandatory<br>Priority: high<br>Description: Security Monitoring</span></div></th>
+        </tr>
+        <tr>
+            <td>DOC-001</td>
+            <td>Security Policy.pdf</td>
+            <td class='fully_compliant'><div class='tooltip'>✓ (0.95)<span class='tooltiptext'>Password policy fully documented and compliant</span></div></td>
+            <td class='non_compliant'><div class='tooltip'>✗ (0.90)<span class='tooltiptext'>Two-factor authentication not implemented</span></div></td>
+            <td class='fully_compliant'><div class='tooltip'>✓ (0.92)<span class='tooltiptext'>Data encryption requirements fully met</span></div></td>
+            <td class='partially_compliant'><div class='tooltip'>⚠ (0.75)<span class='tooltiptext'>Basic incident response coverage but incomplete</span></div></td>
+            <td class='non_compliant'><div class='tooltip'>✗ (0.88)<span class='tooltiptext'>No security monitoring coverage</span></div></td>
+        </tr>
+        <tr>
+            <td>DOC-002</td>
+            <td>Disaster Recovery Plan.pdf</td>
+            <td class='not_applicable'><div class='tooltip'>- (0.95)<span class='tooltiptext'>Password policy not relevant to disaster recovery</span></div></td>
+            <td class='not_applicable'><div class='tooltip'>- (0.95)<span class='tooltiptext'>Two-factor authentication not relevant to disaster recovery</span></div></td>
+            <td class='partially_compliant'><div class='tooltip'>⚠ (0.85)<span class='tooltiptext'>Some encryption requirements addressed in recovery process</span></div></td>
+            <td class='fully_compliant'><div class='tooltip'>✓ (0.92)<span class='tooltiptext'>Incident response fully integrated with disaster recovery</span></div></td>
+            <td class='partially_compliant'><div class='tooltip'>⚠ (0.80)<span class='tooltiptext'>Some monitoring addressed but not comprehensive</span></div></td>
+        </tr>
+        <tr>
+            <td>DOC-003</td>
+            <td>Access Control Standard.pdf</td>
+            <td class='fully_compliant'><div class='tooltip'>✓ (0.98)<span class='tooltiptext'>Comprehensive password policy standards</span></div></td>
+            <td class='fully_compliant'><div class='tooltip'>✓ (0.95)<span class='tooltiptext'>Detailed two-factor authentication standards</span></div></td>
+            <td class='partially_compliant'><div class='tooltip'>⚠ (0.75)<span class='tooltiptext'>Some encryption standards covered</span></div></td>
+            <td class='not_applicable'><div class='tooltip'>- (0.90)<span class='tooltiptext'>Incident response not relevant to access control standard</span></div></td>
+            <td class='not_applicable'><div class='tooltip'>- (0.90)<span class='tooltiptext'>Security monitoring not relevant to access control standard</span></div></td>
+        </tr>
+    </table>
+    <h2>Summary</h2>
+    <table class='summary-table'>
+        <tr>
+            <th>Overall Compliance:</th>
+            <td class='partially_compliant'>Partially Compliant</td>
+        </tr>
+        <tr>
+            <th>Fully Compliant:</th>
+            <td>5 (33.3%)</td>
+        </tr>
+        <tr>
+            <th>Partially Compliant:</th>
+            <td>4 (26.7%)</td>
+        </tr>
+        <tr>
+            <th>Non Compliant:</th>
+            <td>2 (13.3%)</td>
+        </tr>
+        <tr>
+            <th>Not Applicable:</th>
+            <td>4 (26.7%)</td>
+        </tr>
+        <tr>
+            <th>Indeterminate:</th>
+            <td>0 (0.0%)</td>
+        </tr>
+    </table>
+</body>
+</html>

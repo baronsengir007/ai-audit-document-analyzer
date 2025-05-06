@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Compliance Report - Security Policy.pdf</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.5; }
+        h1, h2, h3 { color: #333; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .header-title { flex-grow: 1; }
+        .header-meta { background: #f5f5f5; padding: 10px; border-radius: 5px; font-size: 0.9em; }
+        .document-info { margin-bottom: 30px; background: #f5f5f5; padding: 15px; border-radius: 5px; }
+        .document-info table { width: 100%; border-collapse: collapse; }
+        .document-info th { text-align: left; font-weight: normal; color: #666; width: 30%; }
+        .status-badge { display: inline-block; padding: 5px 10px; border-radius: 3px; color: white; font-weight: bold; text-transform: uppercase; font-size: 0.8em; }
+        .category { margin-bottom: 30px; border: 1px solid #ddd; border-radius: 5px; }
+        .category-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; background: #f9f9f9; border-bottom: 1px solid #ddd; }
+        .category-name { font-weight: bold; font-size: 1.1em; margin-right: 10px; }
+        .category-status { display: flex; align-items: center; }
+        .items-table { width: 100%; border-collapse: collapse; }
+        .items-table th, .items-table td { text-align: left; padding: 10px; border-bottom: 1px solid #eee; }
+        .items-table th { background: #f5f5f5; font-weight: 600; }
+        .items-table tr:last-child td { border-bottom: none; }
+        .items-table tr:hover { background: #f9f9f9; }
+        .tooltip { position: relative; cursor: help; }
+        .tooltip .tooltiptext { visibility: hidden; width: 200px; background-color: #333; color: #fff; text-align: center;
+            border-radius: 6px; padding: 10px; position: absolute; z-index: 1; bottom: 125%; left: 50%; margin-left: -100px;
+            opacity: 0; transition: opacity 0.3s; font-size: 0.9em; }
+        .tooltip:hover .tooltiptext { visibility: visible; opacity: 0.9; }
+        .status-passed { background-color: #4CAF50; }
+        .status-partial { background-color: #FFC107; }
+        .status-failed { background-color: #F44336; }
+        .status-unknown { background-color: #9E9E9E; }
+        .status-error { background-color: #9C27B0; }
+    </style>
+</head>
+<body>
+    <div class='header'>
+        <div class='header-title'>
+            <h1>Compliance Report</h1>
+        </div>
+        <div class='header-meta'>
+            Generated: 2025-05-06 09:01:41
+        </div>
+    </div>
+    <div class='document-info'>
+        <h2>Document Information</h2>
+        <table>
+            <tr>
+                <th>Document Name:</th>
+                <td>Security Policy.pdf</td>
+            </tr>
+            <tr>
+                <th>Document ID:</th>
+                <td>DOC-001</td>
+            </tr>
+            <tr>
+                <th>Document Type:</th>
+                <td>policy</td>
+            </tr>
+            <tr>
+                <th>Overall Status:</th>
+                <td><span class='status-badge status-ValidationStatus.PARTIAL'>⚠ PARTIAL</span></td>
+            </tr>
+            <tr>
+                <th>Confidence Score:</th>
+                <td>0.92</td>
+            </tr>
+            <tr>
+                <th>Validation Mode:</th>
+                <td>static</td>
+            </tr>
+        </table>
+    </div>
+    <h2>Validation Results</h2>
+    <div class='category'>
+        <div class='category-header'>
+            <div class='category-name'>Access Control</div>
+            <div class='category-status'>
+                <span class='status-badge status-ValidationStatus.PARTIAL'>⚠ PARTIAL</span>
+                <span style='margin-left: 10px;'>(Confidence: 0.90)</span>
+            </div>
+        </div>
+        <table class='items-table'>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Status</th>
+                    <th>Confidence</th>
+                    <th>Justification</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Password Policy
+ <span class='tooltip'>ℹ
+                        <span class='tooltiptext'>ID: ACC001</span>
+                    </span>
+                    </td>
+                    <td><span class='status-badge status-ValidationStatus.PASSED'>✓ PASSED</span></td>
+                    <td>0.95</td>
+                    <td>Password policy meets all requirements with secure settings</td>
+                </tr>
+                <tr>
+                    <td>Two-Factor Authentication
+ <span class='tooltip'>ℹ
+                        <span class='tooltiptext'>ID: ACC002</span>
+                    </span>
+                    </td>
+                    <td><span class='status-badge status-ValidationStatus.FAILED'>✗ FAILED</span></td>
+                    <td>0.90</td>
+                    <td>Two-factor authentication is not implemented for all systems</td>
+                </tr>
+                <tr>
+                    <td>Account Lockout
+ <span class='tooltip'>ℹ
+                        <span class='tooltiptext'>ID: ACC003</span>
+                    </span>
+                    </td>
+                    <td><span class='status-badge status-ValidationStatus.PARTIAL'>⚠ PARTIAL</span></td>
+                    <td>0.85</td>
+                    <td>Account lockout implemented but threshold too high (10 attempts)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class='category'>
+        <div class='category-header'>
+            <div class='category-name'>Data Protection</div>
+            <div class='category-status'>
+                <span class='status-badge status-ValidationStatus.PASSED'>✓ PASSED</span>
+                <span style='margin-left: 10px;'>(Confidence: 0.89)</span>
+            </div>
+        </div>
+        <table class='items-table'>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Status</th>
+                    <th>Confidence</th>
+                    <th>Justification</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Data Encryption at Rest
+ <span class='tooltip'>ℹ
+                        <span class='tooltiptext'>ID: DAT001</span>
+                    </span>
+                    </td>
+                    <td><span class='status-badge status-ValidationStatus.PASSED'>✓ PASSED</span></td>
+                    <td>0.92</td>
+                    <td>All sensitive data is encrypted at rest with AES-256</td>
+                </tr>
+                <tr>
+                    <td>Data Encryption in Transit
+ <span class='tooltip'>ℹ
+                        <span class='tooltiptext'>ID: DAT002</span>
+                    </span>
+                    </td>
+                    <td><span class='status-badge status-ValidationStatus.PASSED'>✓ PASSED</span></td>
+                    <td>0.95</td>
+                    <td>All data in transit is encrypted with TLS 1.2+</td>
+                </tr>
+                <tr>
+                    <td>Data Retention Policy
+ <span class='tooltip'>ℹ
+                        <span class='tooltiptext'>ID: DAT003</span>
+                    </span>
+                    </td>
+                    <td><span class='status-badge status-ValidationStatus.PARTIAL'>⚠ PARTIAL</span></td>
+                    <td>0.80</td>
+                    <td>Data retention policy exists but lacks specific timeframes</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class='category'>
+        <div class='category-header'>
+            <div class='category-name'>Incident Response</div>
+            <div class='category-status'>
+                <span class='status-badge status-ValidationStatus.FAILED'>✗ FAILED</span>
+                <span style='margin-left: 10px;'>(Confidence: 0.82)</span>
+            </div>
+        </div>
+        <table class='items-table'>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Status</th>
+                    <th>Confidence</th>
+                    <th>Justification</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Incident Response Plan
+ <span class='tooltip'>ℹ
+                        <span class='tooltiptext'>ID: INC001</span>
+                    </span>
+                    </td>
+                    <td><span class='status-badge status-ValidationStatus.PARTIAL'>⚠ PARTIAL</span></td>
+                    <td>0.75</td>
+                    <td>Basic incident response plan exists but lacks detailed procedures</td>
+                </tr>
+                <tr>
+                    <td>Security Event Monitoring
+ <span class='tooltip'>ℹ
+                        <span class='tooltiptext'>ID: INC002</span>
+                    </span>
+                    </td>
+                    <td><span class='status-badge status-ValidationStatus.FAILED'>✗ FAILED</span></td>
+                    <td>0.88</td>
+                    <td>No centralized security event monitoring system in place</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h2>Issues</h2>
+    <div>
+        <h3>Warnings</h3>
+        <ul>
+            <li style='color: #FFC107;'>Document has several compliance gaps that need addressing</li>
+        </ul>
+    </div>
+    <div style='margin-top: 30px; border-top: 1px solid #eee; padding-top: 15px; color: #999; font-size: 0.8em;'>
+        <p>
+            Validator Version: 1.0.0<br>
+            Processing Time: 250.00 ms<br>
+            Timestamp: 2025-05-06 09:01:41
+        </p>
+    </div>
+</body>
+</html>

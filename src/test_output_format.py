@@ -40,7 +40,7 @@ class TestOutputFormat(unittest.TestCase):
             status=ValidationStatus.PASSED,
             confidence_score=0.9,
             details={"key": "value"},
-            errors=[],
+            errors=["Item error"],
             warnings=["Item warning"]
         )
         
@@ -50,7 +50,7 @@ class TestOutputFormat(unittest.TestCase):
             status=ValidationStatus.PARTIAL,
             confidence_score=0.85,
             items=[self.sample_item],
-            errors=[],
+            errors=["Category error"],
             warnings=["Category warning"]
         )
         
@@ -61,7 +61,7 @@ class TestOutputFormat(unittest.TestCase):
             status=ValidationStatus.PASSED,
             metadata=self.sample_metadata,
             categories=[self.sample_category],
-            errors=[],
+            errors=["Document error"],
             warnings=["Document warning"]
         )
     

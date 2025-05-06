@@ -47,16 +47,16 @@
 ## 🧠 Week 4: Policy-Driven Audit Analysis (Dynamic Mode)
 
 - [x] Build `policy_parser.py` to extract compliance requirements from a policy document using LLM
-- [ ] Prompt LLM: "List all audit/compliance requirements from this document"
-- [ ] Store extracted checklist dynamically (in memory or `/config/policy_requirements.yaml`)
-- [ ] Feed audit documents + extracted rules into compliance evaluator
-- [ ] Prompt LLM: "Does this doc satisfy requirement X? Y/N and explain"
-- [ ] Generate full compliance matrix as output report
-- [ ] Compare results of static vs. dynamic modes
-- [ ] Integrate static and dynamic modes into a unified workflow
-- [ ] Handle edge cases (e.g., LLM extraction failures, unmatched documents)
-- [ ] Test dynamic mode with real/simulated documents
-- [ ] Define and implement output format for compliance matrix (e.g., JSON, CSV, visual report)
+- [x] Prompt LLM: "List all audit/compliance requirements from this document"
+- [x] Store extracted checklist dynamically (in memory or `/config/policy_requirements.yaml`)
+- [x] Feed audit documents + extracted rules into compliance evaluator
+- [x] Prompt LLM: "Does this doc satisfy requirement X? Y/N and explain"
+- [x] Generate full compliance matrix as output report
+- [x] Compare results of static vs. dynamic modes
+- [x] Integrate static and dynamic modes into a unified workflow
+- [x] Handle edge cases (e.g., LLM extraction failures, unmatched documents)
+- [x] Test dynamic mode with real/simulated documents
+- [x] Define and implement output format for compliance matrix (e.g., JSON, CSV, visual report)
 
 ---
 
@@ -77,3 +77,24 @@
 - [ ] Log blockers and learning insights as Markdown checklist
 - [ ] Track future ideas (e.g. embedding-based search, dynamic UI, anomaly detection)
 - [ ] Review and reprioritize board at least weekly
+
+## Core Features
+- [x] Implement static mode document processing
+- [x] Implement dynamic mode document processing
+- [x] Create unified workflow manager
+- [x] Handle edge cases (e.g., LLM extraction failures, unmatched documents)
+
+## Integration Tasks
+- [ ] Integrate with external compliance databases
+- [ ] Implement real-time monitoring and alerts
+- [ ] Add support for custom compliance rules
+
+## Testing & Quality Assurance
+- [x] Create comprehensive test suite
+- [x] Implement performance benchmarking
+- [ ] Add automated regression testing
+
+## Documentation & Maintenance
+- [ ] Create user documentation
+- [ ] Document API endpoints
+- [ ] Set up automated deployment pipeline

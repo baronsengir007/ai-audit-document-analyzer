@@ -1,0 +1,56 @@
+[
+    {
+        "id": "req_1",
+        "requirement_text": "All employees must use strong passwords for their accounts",
+        "type": "explicit",
+        "keywords": ["strong", "passwords", "accounts"],
+        "conditions": [],
+        "confidence": 0.95,
+        "is_primary": true
+    },
+    {
+        "id": "req_2",
+        "requirement_text": "Passwords shall be changed every 90 days",
+        "type": "explicit",
+        "keywords": ["passwords", "changed", "90 days"],
+        "conditions": [],
+        "confidence": 0.9,
+        "is_primary": true
+    },
+    {
+        "id": "req_3",
+        "requirement_text": "Multi-factor authentication is required for remote access",
+        "type": "explicit",
+        "keywords": ["multi-factor", "authentication", "remote", "access"],
+        "conditions": ["remote access"],
+        "confidence": 0.95,
+        "is_primary": true
+    },
+    {
+        "id": "req_4",
+        "requirement_text": "Sensitive data must be encrypted at rest",
+        "type": "explicit",
+        "keywords": ["sensitive", "data", "encrypted", "at rest"],
+        "conditions": [],
+        "confidence": 0.9,
+        "is_primary": true
+    },
+    {
+        "id": "req_5",
+        "requirement_text": "Regular backups are mandatory",
+        "type": "explicit",
+        "keywords": ["regular", "backups", "mandatory"],
+        "conditions": [],
+        "confidence": 0.9,
+        "is_primary": true
+    },
+    {
+        "id": "req_6",
+        "requirement_text": "Data retention policies shall be followed",
+        "type": "explicit",
+        "keywords": ["data", "retention", "policies"],
+        "conditions": [],
+        "confidence": 0.9,
+        "is_primary": true
+    }
+] 

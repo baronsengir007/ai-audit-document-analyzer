@@ -1,0 +1,30 @@
+{
+  "document_id": "data_retention_policy.pdf",
+  "classification": "policy",
+  "is_compliant": false,
+  "compliance_level": "non_compliant",
+  "confidence": 0.8666666666666667,
+  "mode_used": "dynamic",
+  "processing_time": 0.5,
+  "details": {
+    "overall_compliance": "non_compliant",
+    "requirement_results": {
+      "REQ004": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      },
+      "REQ006": {
+        "compliance_level": "fully_compliant",
+        "confidence_score": 0.9,
+        "justification": "Document fully complies with requirement, containing 3 matching keywords"
+      },
+      "REQ012": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.9,
+        "justification": "Document mentions prohibited elements related to Data Protection"
+      }
+    },
+    "processing_time": 0.5
+  }
+}

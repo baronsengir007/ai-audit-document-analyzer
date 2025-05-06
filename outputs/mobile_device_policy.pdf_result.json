@@ -1,0 +1,20 @@
+{
+  "document_id": "mobile_device_policy.pdf",
+  "classification": "policy",
+  "is_compliant": true,
+  "compliance_level": "partially_compliant",
+  "confidence": 0.7,
+  "mode_used": "dynamic",
+  "processing_time": 0.5,
+  "details": {
+    "overall_compliance": "partially_compliant",
+    "requirement_results": {
+      "REQ007": {
+        "compliance_level": "partially_compliant",
+        "confidence_score": 0.7,
+        "justification": "Document partially complies with requirement, containing 1 matching keywords"
+      }
+    },
+    "processing_time": 0.5
+  }
+}

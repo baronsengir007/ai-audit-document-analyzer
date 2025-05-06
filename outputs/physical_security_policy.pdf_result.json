@@ -1,0 +1,40 @@
+{
+  "document_id": "physical_security_policy.pdf",
+  "classification": "policy",
+  "is_compliant": false,
+  "compliance_level": "non_compliant",
+  "confidence": 0.8200000000000001,
+  "mode_used": "dynamic",
+  "processing_time": 0.5,
+  "details": {
+    "overall_compliance": "non_compliant",
+    "requirement_results": {
+      "REQ003": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      },
+      "REQ007": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      },
+      "REQ008": {
+        "compliance_level": "fully_compliant",
+        "confidence_score": 0.9,
+        "justification": "Document fully complies with requirement, containing 4 matching keywords"
+      },
+      "REQ009": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      },
+      "REQ010": {
+        "compliance_level": "non_compliant",
+        "confidence_score": 0.8,
+        "justification": "Document does not comply with requirement, missing most keywords"
+      }
+    },
+    "processing_time": 0.5
+  }
+}

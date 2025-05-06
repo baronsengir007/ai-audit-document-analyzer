@@ -1,8 +1,8 @@
 import os
 import json
 from pathlib import Path
-from pdf_extractor import extract_text_from_pdf
-from document_processor import extract_text_from_pdf, extract_text_from_word, extract_text_from_excel
+from .pdf_extractor import extract_text_from_pdf
+from .document_processor import extract_text_from_word, extract_text_from_excel
 
 
 # Supported file extensions

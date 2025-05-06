@@ -1,0 +1,55 @@
+{
+  "test_timestamp": "2025-05-06T08:40:05.809789",
+  "total_documents": 23,
+  "passed_documents": 4,
+  "failed_documents": 19,
+  "total_processing_time": 0.087307,
+  "average_processing_time": 0.0037959565217391303,
+  "average_confidence": 0.795079365079365,
+  "documents_by_type": {
+    "policy": 14,
+    "procedure": 2,
+    "guideline": 2,
+    "standard": 1,
+    "unknown": 2,
+    "report": 1,
+    "memo": 1
+  },
+  "compliance_by_type": {
+    "policy": {
+      "total": 14,
+      "compliant": 3,
+      "non_compliant": 11
+    },
+    "procedure": {
+      "total": 2,
+      "compliant": 0,
+      "non_compliant": 2
+    },
+    "guideline": {
+      "total": 2,
+      "compliant": 0,
+      "non_compliant": 2
+    },
+    "standard": {
+      "total": 1,
+      "compliant": 0,
+      "non_compliant": 1
+    },
+    "unknown": {
+      "total": 2,
+      "compliant": 0,
+      "non_compliant": 2
+    },
+    "report": {
+      "total": 1,
+      "compliant": 0,
+      "non_compliant": 1
+    },
+    "memo": {
+      "total": 1,
+      "compliant": 1,
+      "non_compliant": 0
+    }
+  }
+}

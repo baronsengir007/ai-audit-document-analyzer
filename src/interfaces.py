@@ -1,3 +1,7 @@
+"""
+Core interfaces and data types for the AI Audit Document Scanner
+"""
+
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Dict, List, Optional, Any, Union
@@ -7,22 +11,27 @@ import yaml
 
 @dataclass
 class Document:
-    """Unified document representation for both static and dynamic modes"""
+    """Represents a document to be analyzed"""
     filename: str
     content: str
     classification: str
     metadata: Dict[str, Any]
-    source_path: Optional[Path] = None
+    source_path: Optional[str] = None
+
+@dataclass
+class ComplianceResult:
+    """Result of a compliance check"""
+    is_compliant: bool
+    confidence: float
+    details: Dict[str, Any]
+    mode_used: str
 
 @dataclass
 class ValidationResult:
-    """Unified validation result structure"""
-    document: Document
-    status: str  # complete, incomplete, error
-    validation_results: Dict[str, Any]
-    mode: str  # static or dynamic
-    timestamp: float
-    error: Optional[str] = None
+    """Result of a validation check"""
+    is_valid: bool
+    issues: list[str]
+    details: Dict[str, Any]
 
 class DocumentProcessor(ABC):
     """Abstract base class for document processing"""

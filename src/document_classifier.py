@@ -1,31 +1,103 @@
-import json
-from pathlib import Path
+"""
+Document Classifier Module
+Classifies documents based on their content and metadata.
+"""
 
-def classify_document(doc):
-    """
-    Classify a document based on its content.
-    Returns one of: invoice, audit_rfi, project_data, checklist, policy_requirements, unknown
-    """
-    content = doc["content"].lower()
+import re
+from typing import Dict, Union, Any
 
-    # Simple keyword-based classification
-    if "invoice" in content or "total" in content or "amount" in content:
-        return "invoice"
-    elif "audit" in content and ("requirement" in content or "compliance" in content):
-        return "audit_rfi"
-    elif "project" in content and ("status" in content or "milestone" in content):
-        return "project_data"
-    elif "checklist" in content:
-        return "checklist"
-    elif "policy" in content or "requirements" in content:
-        return "policy_requirements"
-    else:
+# Import interfaces with relative import to match project structure
+from .interfaces import Document
+
+class DocumentClassifier:
+    """Classifies documents based on their content and metadata."""
+    
+    def classify(self, document: Union[Document, Dict[str, Any]]) -> str:
+        """
+        Classify a document based on its content and metadata
+        
+        Args:
+            document: Either a Document object or a dictionary with 'content' and other metadata
+            
+        Returns:
+            The document classification as a string
+        """
+        # Extract content from either Document object or dictionary
+        content = document.content if isinstance(document, Document) else document.get('content', '')
+        
+        if not content:
+            return "unknown"
+        
+        # Convert content to lowercase for case-insensitive matching
+        content_lower = content.lower()
+        
+        # Use simple keyword matching to determine document type
+        if any(kw in content_lower for kw in ["invoice", "payment", "amount", "total", "bill"]):
+            return "invoice"
+        
+        if any(kw in content_lower for kw in ["questionnaire", "audit", "response", "compliance"]):
+            return "audit_rfi"
+            
+        if any(kw in content_lower for kw in ["project", "timeline", "milestone", "deliverable"]):
+            return "project_data"
+            
+        if any(kw in content_lower for kw in ["checklist", "verify", "confirmation"]):
+            return "checklist"
+            
+        if any(kw in content_lower for kw in ["policy", "requirement", "regulation", "compliance"]):
+            return "policy_requirements"
+            
+        # Default classification
         return "unknown"
+    
+    def is_complex(self, document: Union[Document, Dict[str, Any]]) -> bool:
+        """
+        Determine if a document is complex based on content size and structure
+        
+        Args:
+            document: Either a Document object or a dictionary with 'content'
+            
+        Returns:
+            True if the document is considered complex, False otherwise
+        """
+        # Extract content from either Document object or dictionary
+        content = document.content if isinstance(document, Document) else document.get('content', '')
+        
+        if not content:
+            return False
+            
+        # Complex documents might have:
+        # 1. Many sections (indicated by headers)
+        # 2. Large content size
+        # 3. Tables or structured data
+        
+        # Check content size
+        if len(content) > 5000:
+            return True
+            
+        # Check for multiple sections (headers)
+        headers = re.findall(r'(?:\n|^)#+\s+\w+|(?:\n|^)[A-Z][A-Za-z\s]+\n[-=]+', content)
+        if len(headers) > 5:
+            return True
+            
+        # Check for tables (simplified check)
+        table_indicators = re.findall(r'\|\s*\w+\s*\|', content)
+        if len(table_indicators) > 5:
+            return True
+            
+        return False
 
-if __name__ == "__main__":
-    # Example usage
-    test_doc = {
-        "filename": "test.pdf",
-        "content": "This is an invoice for $100. Total amount due: $100"
-    }
-    print(f"Classification: {classify_document(test_doc)}")
+# Standalone function that uses the DocumentClassifier class
+def classify_document(document: Union[Document, Dict[str, Any]]) -> str:
+    """
+    Classify a document based on its content and metadata.
+    This function serves as a convenient wrapper around the DocumentClassifier class.
+    
+    Args:
+        document: Either a Document object or a dictionary with 'content' and metadata
+        
+    Returns:
+        The document classification as a string
+    """
+    classifier = DocumentClassifier()
+    return classifier.classify(document)

@@ -1,102 +1,106 @@
 import json
-import yaml
-from pathlib import Path
 import logging
+from typing import Dict, List, Any, Optional
+from pathlib import Path
 
-# 1. Read normalized_docs.json and checklist.yaml
-with open("outputs/normalized_docs.json", "r", encoding="utf-8") as f:
-    documents = json.load(f)
+logger = logging.getLogger(__name__)
 
-with open("config/checklist.yaml", "r", encoding="utf-8") as f:
-    checklist = yaml.safe_load(f)["audit_completeness_checklist"]
+def load_normalized_docs() -> List[Dict[str, Any]]:
+    """Load normalized documents from JSON file"""
+    try:
+        with open("outputs/normalized_docs.json", "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        logger.warning("normalized_docs.json not found, returning empty list")
+        return []
+    except Exception as e:
+        logger.error(f"Error loading normalized_docs.json: {e}")
+        return []
 
-# 2. Match classified document types to checklist categories
-type_to_checklist_id = {
-    "pdf": "invoices",
-    "excel": "project_data",
-    "word": "audit_rfi",
-}
-
-# Build a mapping from checklist id to required keywords
-checklist_map = {item["id"]: item["required_keywords"] for item in checklist}
-
-def validate_document(doc):
-    doc_type = doc.get("type")
-    checklist_id = type_to_checklist_id.get(doc_type)
-    if not checklist_id or checklist_id not in checklist_map:
-        return {"status": "unknown type", "missing": [], "present": []}
-    required_keywords = checklist_map[checklist_id]
-    content = doc["content"].lower()
-    present = [kw for kw in required_keywords if kw.lower() in content]
-    missing = [kw for kw in required_keywords if kw.lower() not in content]
-    status = "complete" if not missing else "incomplete"
-    return {"status": status, "missing": missing, "present": present}
-
-# 3. For each document, scan for required keywords in content
-report = []
-for doc in documents:
-    result = validate_document(doc)
-    print(f"{doc['filename']} ({doc['type']}): {result['status']}")
-    if result["missing"]:
-        print("  ✗ Missing:", ", ".join(result["missing"]))
-    if result["present"]:
-        print("  ✓ Present:", ", ".join(result["present"]))
-    report.append({"filename": doc["filename"], **result})
-
-# 4. Save the report as JSON
-with open("outputs/checklist_report.json", "w", encoding="utf-8") as f:
-    json.dump(report, f, ensure_ascii=False, indent=2)
-
-def scan_and_report_keywords(documents, checklist_map, type_to_checklist_id):
+def scan_and_report_keywords(documents: List[Dict[str, Any]], 
+                           checklist_map: Dict[str, List[str]], 
+                           type_to_checklist_id: Dict[str, str]) -> List[Dict[str, Any]]:
     """
-    Scans each document's content for required keywords and reports results.
-    Returns a list of dicts: [{doc, checklist_id, present_keywords, missing_keywords}, ...]
+    Scan documents for keywords and report findings
+    
+    Args:
+        documents: List of document dictionaries with content and classification
+        checklist_map: Dictionary mapping checklist IDs to keyword lists
+        type_to_checklist_id: Dictionary mapping document types to checklist IDs
+        
+    Returns:
+        List of dictionaries with scan results
     """
     results = []
+    
     for doc in documents:
-        doc_type = doc.get("classification")  # Use classification instead of type
-        checklist_id = type_to_checklist_id.get(doc_type)
-        if not checklist_id or checklist_id not in checklist_map:
-            logging.warning(f"No checklist category found for document '{doc['filename']}' (type: {doc_type}).")
+        try:
+            content = doc["content"].lower()
+            doc_type = doc["classification"]
+            
+            # Get checklist ID for document type
+            checklist_id = type_to_checklist_id.get(doc_type)
+            if not checklist_id:
+                logger.warning(f"No checklist found for document type: {doc_type}")
+                continue
+                
+            # Get keywords for checklist
+            keywords = checklist_map.get(checklist_id, [])
+            if not keywords:
+                logger.warning(f"No keywords found for checklist: {checklist_id}")
+                continue
+                
+            # Scan for keywords
+            present_keywords = []
+            missing_keywords = []
+            
+            for keyword in keywords:
+                if keyword.lower() in content:
+                    present_keywords.append(keyword)
+                else:
+                    missing_keywords.append(keyword)
+                    
+            # Create result
+            result = {
+                "document_type": doc_type,
+                "checklist_id": checklist_id,
+                "present_keywords": present_keywords,
+                "missing_keywords": missing_keywords,
+                "total_keywords": len(keywords),
+                "found_keywords": len(present_keywords)
+            }
+            
+            results.append(result)
+            
+        except Exception as e:
+            logger.error(f"Error scanning document: {e}")
             continue
-        required_keywords = checklist_map[checklist_id]
-        content = doc["content"].lower()
-        present = [kw for kw in required_keywords if kw.lower() in content]
-        missing = [kw for kw in required_keywords if kw.lower() not in content]
-        results.append({
-            "document": doc,
-            "checklist_id": checklist_id,
-            "present_keywords": present,
-            "missing_keywords": missing
-        })
+            
     return results
 
-def format_report(results):
-    """
-    Formats the results for console output with checkmarks and X marks.
-    """
-    for result in results:
-        doc = result["document"]
-        present = result["present_keywords"]
-        missing = result["missing_keywords"]
-        print(f"{doc['filename']} ({doc.get('classification', 'unknown')}):")
-        if present:
-            print("  ✓ Present:", ", ".join(present))
-        if missing:
-            print("  ✗ Missing:", ", ".join(missing))
+def save_scan_results(results: List[Dict[str, Any]], output_path: Optional[Path] = None) -> None:
+    """Save scan results to JSON file"""
+    if not output_path:
+        output_path = Path("outputs/scan_results.json")
+        
+    try:
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(results, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        logger.error(f"Error saving scan results: {e}")
 
-if __name__ == "__main__":
-    # Example usage
-    test_doc = {
-        "filename": "test.pdf",
-        "classification": "invoice",
-        "content": "This is an invoice for $100. Total amount due: $100"
+def get_compliance_summary(results: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """Generate summary of compliance results"""
+    total_docs = len(results)
+    fully_compliant = sum(1 for r in results if not r["missing_keywords"])
+    partially_compliant = sum(1 for r in results if r["missing_keywords"] and r["present_keywords"])
+    non_compliant = sum(1 for r in results if not r["present_keywords"])
+    
+    return {
+        "total_documents": total_docs,
+        "fully_compliant": fully_compliant,
+        "partially_compliant": partially_compliant,
+        "non_compliant": non_compliant,
+        "compliance_rate": fully_compliant / total_docs if total_docs > 0 else 0
     }
-    test_checklist = {
-        "invoices": ["invoice", "total", "amount"]
-    }
-    test_mapping = {
-        "invoice": "invoices"
-    }
-    results = scan_and_report_keywords([test_doc], test_checklist, test_mapping)
-    format_report(results)

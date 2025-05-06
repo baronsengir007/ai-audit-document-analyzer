@@ -4,21 +4,22 @@ from typing import Dict, List, Any
 from concurrent.futures import ThreadPoolExecutor
 import json
 
-from interfaces import (
+from .interfaces import (
     Document,
     ValidationResult,
     DocumentProcessor,
     ValidationStrategy,
-    ValidationMode
+    ValidationMode,
+    ComplianceResult
 )
-from document_processor import (
+from .document_processor import (
     extract_text_from_pdf,
     extract_text_from_word,
     extract_text_from_excel
 )
-from document_classifier import classify_document
-from checklist_validator import scan_and_report_keywords
-from output_format import (
+from .document_classifier import classify_document
+from .checklist_validator import scan_and_report_keywords
+from .output_format import (
     ValidationStatus,
     ValidationMetadata,
     ValidationItem,
@@ -202,4 +203,16 @@ class StaticValidationMode(ValidationMode):
         
         summary_path = output_path.parent / "validation_summary.json"
         with open(summary_path, "w", encoding="utf-8") as f:
-            json.dump(summary, f, ensure_ascii=False, indent=2) 
+            json.dump(summary, f, ensure_ascii=False, indent=2)
+
+class StaticModeAdapter:
+    """Handles static mode document processing."""
+    
+    def process(self, document: Document) -> ComplianceResult:
+        """Process a document in static mode"""
+        return ComplianceResult(
+            is_compliant=False,
+            confidence=0.0,
+            details={},
+            mode_used="static"
+        ) 
