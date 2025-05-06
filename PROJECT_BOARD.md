@@ -62,7 +62,7 @@
 
 ## 📈 Week 5: Polish & Delivery
 
-- [ ] Finalize both static and policy-based compliance modes
+- [x] Finalize both static and policy-based compliance modes
 - [ ] Add examples and screenshots to `README.md`
 - [ ] Write clear usage guide (running static and policy modes)
 - [ ] Full run-through test on 3-5 real/simulated documents

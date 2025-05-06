@@ -1,0 +1,475 @@
+{
+  "title": "Compliance Modes Test Report",
+  "timestamp": "2025-05-06T09:14:40.028902",
+  "test_environment": {
+    "platform": "win32",
+    "python_version": "3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]",
+    "log_file": "logs\\compliance_modes_test.log"
+  },
+  "results": {
+    "static_mode": [
+      {
+        "document": "compliant_policy.pdf",
+        "is_compliant": true,
+        "confidence": 0.9,
+        "processing_time": 0.1082150936126709,
+        "details": {
+          "matched_keywords": [
+            "compliance",
+            "requirement",
+            "policy",
+            "procedure"
+          ],
+          "missing_keywords": [
+            "compliant"
+          ],
+          "processing_time": 0.1
+        }
+      },
+      {
+        "document": "non_compliant_document.pdf",
+        "is_compliant": false,
+        "confidence": 0.8,
+        "processing_time": 0.13657617568969727,
+        "details": {
+          "matched_keywords": [],
+          "missing_keywords": [
+            "compliant",
+            "compliance",
+            "requirement",
+            "policy",
+            "procedure"
+          ],
+          "processing_time": 0.1
+        }
+      },
+      {
+        "document": "partially_compliant.pdf",
+        "is_compliant": false,
+        "confidence": 0.8,
+        "processing_time": 0.10203146934509277,
+        "details": {
+          "matched_keywords": [
+            "policy"
+          ],
+          "missing_keywords": [
+            "compliant",
+            "compliance",
+            "requirement",
+            "procedure"
+          ],
+          "processing_time": 0.1
+        }
+      },
+      {
+        "document": "complex_policy.pdf",
+        "is_compliant": false,
+        "confidence": 0.8,
+        "processing_time": 0.10137057304382324,
+        "details": {
+          "matched_keywords": [
+            "requirement"
+          ],
+          "missing_keywords": [
+            "compliant",
+            "compliance",
+            "policy",
+            "procedure"
+          ],
+          "processing_time": 0.1
+        }
+      },
+      {
+        "document": "technical_document.pdf",
+        "is_compliant": false,
+        "confidence": 0.8,
+        "processing_time": 0.10275721549987793,
+        "details": {
+          "matched_keywords": [
+            "requirement"
+          ],
+          "missing_keywords": [
+            "compliant",
+            "compliance",
+            "policy",
+            "procedure"
+          ],
+          "processing_time": 0.1
+        }
+      }
+    ],
+    "dynamic_mode": [
+      {
+        "document": "compliant_policy.pdf",
+        "is_compliant": true,
+        "confidence": 0.85,
+        "processing_time": 0.20409107208251953,
+        "details": {
+          "matched_phrases": [
+            "in accordance with",
+            "satisfies policy"
+          ],
+          "missing_phrases": [
+            "meets requirements",
+            "complies with",
+            "adheres to"
+          ],
+          "processing_time": 0.2,
+          "semantic_evaluation": true
+        }
+      },
+      {
+        "document": "non_compliant_document.pdf",
+        "is_compliant": false,
+        "confidence": 0.7,
+        "processing_time": 0.2021021842956543,
+        "details": {
+          "matched_phrases": [],
+          "missing_phrases": [
+            "meets requirements",
+            "complies with",
+            "in accordance with",
+            "satisfies policy",
+            "adheres to"
+          ],
+          "processing_time": 0.2,
+          "semantic_evaluation": true
+        }
+      },
+      {
+        "document": "partially_compliant.pdf",
+        "is_compliant": false,
+        "confidence": 0.7,
+        "processing_time": 0.20210766792297363,
+        "details": {
+          "matched_phrases": [],
+          "missing_phrases": [
+            "meets requirements",
+            "complies with",
+            "in accordance with",
+            "satisfies policy",
+            "adheres to"
+          ],
+          "processing_time": 0.2,
+          "semantic_evaluation": true
+        }
+      },
+      {
+        "document": "complex_policy.pdf",
+        "is_compliant": true,
+        "confidence": 0.85,
+        "processing_time": 0.20151782035827637,
+        "details": {
+          "matched_phrases": [
+            "meets requirements",
+            "in accordance with"
+          ],
+          "missing_phrases": [
+            "complies with",
+            "satisfies policy",
+            "adheres to"
+          ],
+          "processing_time": 0.2,
+          "semantic_evaluation": true
+        }
+      },
+      {
+        "document": "technical_document.pdf",
+        "is_compliant": false,
+        "confidence": 0.7,
+        "processing_time": 0.201554536819458,
+        "details": {
+          "matched_phrases": [],
+          "missing_phrases": [
+            "meets requirements",
+            "complies with",
+            "in accordance with",
+            "satisfies policy",
+            "adheres to"
+          ],
+          "processing_time": 0.2,
+          "semantic_evaluation": true
+        }
+      }
+    ],
+    "unified_workflow": [
+      {
+        "document": "compliant_policy.pdf",
+        "is_compliant": true,
+        "confidence": 0.85,
+        "mode_used": "dynamic",
+        "processing_time": 0.20317888259887695,
+        "details": {
+          "matched_phrases": [
+            "in accordance with",
+            "satisfies policy"
+          ],
+          "missing_phrases": [
+            "meets requirements",
+            "complies with",
+            "adheres to"
+          ],
+          "processing_time": 0.2,
+          "semantic_evaluation": true
+        }
+      },
+      {
+        "document": "non_compliant_document.pdf",
+        "is_compliant": false,
+        "confidence": 0.8,
+        "mode_used": "static",
+        "processing_time": 0.10233402252197266,
+        "details": {
+          "matched_keywords": [],
+          "missing_keywords": [
+            "compliant",
+            "compliance",
+            "requirement",
+            "policy",
+            "procedure"
+          ],
+          "processing_time": 0.1
+        }
+      },
+      {
+        "document": "partially_compliant.pdf",
+        "is_compliant": false,
+        "confidence": 0.8,
+        "mode_used": "static",
+        "processing_time": 0.10161781311035156,
+        "details": {
+          "matched_keywords": [
+            "policy"
+          ],
+          "missing_keywords": [
+            "compliant",
+            "compliance",
+            "requirement",
+            "procedure"
+          ],
+          "processing_time": 0.1
+        }
+      },
+      {
+        "document": "complex_policy.pdf",
+        "is_compliant": true,
+        "confidence": 0.85,
+        "mode_used": "dynamic",
+        "processing_time": 0.20233631134033203,
+        "details": {
+          "matched_phrases": [
+            "meets requirements",
+            "in accordance with"
+          ],
+          "missing_phrases": [
+            "complies with",
+            "satisfies policy",
+            "adheres to"
+          ],
+          "processing_time": 0.2,
+          "semantic_evaluation": true
+        }
+      },
+      {
+        "document": "technical_document.pdf",
+        "is_compliant": false,
+        "confidence": 0.8,
+        "mode_used": "static",
+        "processing_time": 0.1021733283996582,
+        "details": {
+          "matched_keywords": [
+            "requirement"
+          ],
+          "missing_keywords": [
+            "compliant",
+            "compliance",
+            "policy",
+            "procedure"
+          ],
+          "processing_time": 0.1
+        }
+      }
+    ],
+    "edge_cases": {
+      "static": [
+        {
+          "document": "empty_document.pdf",
+          "result": "success",
+          "is_compliant": false,
+          "confidence": 0.8
+        },
+        {
+          "document": "large_document.pdf",
+          "result": "success",
+          "is_compliant": false,
+          "confidence": 0.8
+        },
+        {
+          "document": "unusual_chars.pdf",
+          "result": "success",
+          "is_compliant": false,
+          "confidence": 0.8
+        },
+        {
+          "document": "malformed_content.pdf",
+          "result": "success",
+          "is_compliant": false,
+          "confidence": 0.8
+        },
+        {
+          "document": "missing_metadata.pdf",
+          "result": "success",
+          "is_compliant": false,
+          "confidence": 0.8
+        }
+      ],
+      "dynamic": [
+        {
+          "document": "empty_document.pdf",
+          "result": "success",
+          "is_compliant": false,
+          "confidence": 0.7
+        },
+        {
+          "document": "large_document.pdf",
+          "result": "success",
+          "is_compliant": false,
+          "confidence": 0.7
+        },
+        {
+          "document": "unusual_chars.pdf",
+          "result": "success",
+          "is_compliant": false,
+          "confidence": 0.7
+        },
+        {
+          "document": "malformed_content.pdf",
+          "result": "success",
+          "is_compliant": false,
+          "confidence": 0.7
+        },
+        {
+          "document": "missing_metadata.pdf",
+          "result": "success",
+          "is_compliant": false,
+          "confidence": 0.7
+        }
+      ],
+      "unified": [
+        {
+          "document": "empty_document.pdf",
+          "result": "success",
+          "is_compliant": false,
+          "confidence": 0.8,
+          "mode_used": "static"
+        },
+        {
+          "document": "large_document.pdf",
+          "result": "success",
+          "is_compliant": false,
+          "confidence": 0.8,
+          "mode_used": "static"
+        },
+        {
+          "document": "unusual_chars.pdf",
+          "result": "success",
+          "is_compliant": false,
+          "confidence": 0.8,
+          "mode_used": "static"
+        },
+        {
+          "document": "malformed_content.pdf",
+          "result": "success",
+          "is_compliant": false,
+          "confidence": 0.8,
+          "mode_used": "static"
+        },
+        {
+          "document": "missing_metadata.pdf",
+          "result": "success",
+          "is_compliant": false,
+          "confidence": 0.8,
+          "mode_used": "static"
+        }
+      ]
+    },
+    "batch_processing": {
+      "batch_results": [
+        {
+          "document": "compliant_policy.pdf",
+          "is_compliant": true,
+          "confidence": 0.85,
+          "mode_used": "dynamic"
+        },
+        {
+          "document": "non_compliant_document.pdf",
+          "is_compliant": false,
+          "confidence": 0.8,
+          "mode_used": "static"
+        },
+        {
+          "document": "partially_compliant.pdf",
+          "is_compliant": false,
+          "confidence": 0.8,
+          "mode_used": "static"
+        },
+        {
+          "document": "complex_policy.pdf",
+          "is_compliant": true,
+          "confidence": 0.85,
+          "mode_used": "dynamic"
+        },
+        {
+          "document": "technical_document.pdf",
+          "is_compliant": false,
+          "confidence": 0.8,
+          "mode_used": "static"
+        }
+      ],
+      "statistics": {
+        "total_documents": 5,
+        "compliant_count": 2,
+        "mode_counts": {
+          "dynamic": 2,
+          "static": 3
+        },
+        "total_time": 0.7077364921569824,
+        "average_time": 0.1415472984313965
+      }
+    }
+  },
+  "summary": {
+    "static_mode": {
+      "documents_tested": 5,
+      "compliant_count": 1,
+      "average_confidence": 0.8200000000000001,
+      "average_processing_time": 0.11019010543823242
+    },
+    "dynamic_mode": {
+      "documents_tested": 5,
+      "compliant_count": 2,
+      "average_confidence": 0.76,
+      "average_processing_time": 0.20227465629577637
+    },
+    "unified_workflow": {
+      "documents_tested": 5,
+      "compliant_count": 2,
+      "average_confidence": 0.82,
+      "average_processing_time": 0.14232807159423827,
+      "mode_distribution": {
+        "static": 3,
+        "dynamic": 2
+      }
+    },
+    "edge_cases": {
+      "static_success_rate": 1.0,
+      "dynamic_success_rate": 1.0,
+      "unified_success_rate": 1.0
+    },
+    "batch_processing": {
+      "total_documents": 5,
+      "compliant_count": 2,
+      "average_time": 0.1415472984313965
+    }
+  }
+}
