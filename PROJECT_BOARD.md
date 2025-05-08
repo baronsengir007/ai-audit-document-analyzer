@@ -1,118 +1,216 @@
-# 📊 Project Board: AI Audit Document Analyzer
+# 📊 Project Board: AI Document Classification System
 
-## 📅 Week 1: Setup & Project Kickoff
+🚫 Completion Rule: 
+No phase, task, or component may be marked as completed unless all associated tests are executed and pass without error. Any false-positive reporting must be corrected immediately.
 
+🔐 All test results must be validated using ./verify_tests.sh.
+No task or phase may be marked complete unless this script exits successfully.
+
+
+## 🔄 Project Refocus: Semantic Document Classification
+
+This project has been refocused from compliance requirement extraction to semantic document classification. The goal is now to use AI to evaluate whether certain required types of documents are present in a collection of files, going beyond simple keyword matching to use semantic understanding.
+
+## 📝 Phase 1: Clean-up & Foundation
+
+- [x] Create project backup
+  - *Description*: Create a full backup of the current project to preserve original code
+  - *Files*: All project files
+  - *Dependencies*: None
+
+- [x] Remove obsolete components
+  - *Description*: Remove files related to requirement extraction and compliance evaluation
+  - *Files*: 
+    - src/policy_requirement_extractor.py
+    - src/policy_parser.py
+    - src/policy_requirement_manager.py
+    - src/requirement_store.py
+    - src/compliance_evaluator.py
+    - src/comparison_framework.py
+    - src/compliance_matrix_generator.py
+    - src/finalize_compliance_modes.py
+    - src/unified_workflow_manager.py
+    - src/static_mode_adapter.py
+    - src/dynamic_mode_adapter.py
+    - Related test files
+  - *Dependencies*: Project backup
+
+- [x] Create document_types.yaml configuration
+  - *Description*: Create configuration file defining required document types with descriptions and examples
+  - *Files*: config/document_types.yaml
+  - *Dependencies*: None
+
+- [x] Update main.py to remove references to removed components
+  - *Description*: Simplify main.py, removing imports and references to obsolete components
+  - *Files*: src/main.py
+  - *Dependencies*: Remove obsolete components
+
+## 📝 Phase 2: Core Classifier System
+
+- [x] Create semantic_classifier.py
+  - *Description*: Implement the core semantic document classifier using LLM
+  - *Files*: src/semantic_classifier.py
+  - *Dependencies*: document_types.yaml, llm_wrapper.py
+
+- [x] Create type_verification.py
+  - *Description*: Implement verification of required document types
+  - *Files*: src/type_verification.py
+  - *Dependencies*: semantic_classifier.py
+
+- [x] Create results_visualizer.py
+  - *Description*: Generate HTML and JSON reports of classification results
+  - *Files*: src/results_visualizer.py
+  - *Dependencies*: type_verification.py
+
+- [x] Write and execute unit tests for new components
+  - *Description*: Create test files for new components and verify execution
+  - *Files*: src/test_semantic_classifier.py, src/test_type_verification.py, src/test_results_visualizer.py
+  - *Test Results*: test_results/test_execution_summary.md
+  - *Dependencies*: All new components
+  - *Status*: **All tests successfully executed and passing.** See test_execution_summary.md for detailed results.
+
+### Additional Phase 2 Cleanup and Testing
+
+- [x] Removed USAGE.md (outdated documentation)
+  - *Description*: Removed documentation describing the old compliance validation system
+  - *Files*: USAGE.md
+  - *Dependencies*: None
+
+- [x] Removed output_formatter_evidence/ directory
+  - *Description*: Removed output directory tied to old architecture
+  - *Files*: output_formatter_evidence/
+  - *Dependencies*: None
+
+- [x] Fixed src/__init__.py to remove obsolete imports
+  - *Description*: Updated imports to reflect new architecture and remove references to removed components
+  - *Files*: src/__init__.py
+  - *Dependencies*: semantic_classifier.py, type_verification.py, results_visualizer.py
+  
+- [x] Created standalone test script for verification
+  - *Description*: Created a self-contained test script to verify component functionality
+  - *Files*: test_results/standalone_test.py
+  - *Dependencies*: All Phase 2 components
+  - *Status*: Executed and verified all core functionality works correctly
+
+## 📝 Phase 3: Integration & Refactoring
+
+- [x] Update document_processor.py
+  - *Description*: Refactor document processing to focus on text extraction and normalization
+  - *Files*: src/document_processor.py
+  - *Dependencies*: document_loader.py, pdf_extractor.py
+  - *Test Results*: test_results/document_processor_verification.log
+  - *Status*: Refactored to include robust error handling and text extraction for all file types
+
+- [x] Refactor llm_wrapper.py
+  - *Description*: Update LLM prompts for document classification
+  - *Files*: src/llm_wrapper.py
+  - *Dependencies*: None
+  - *Test Results*: test_results/llm_wrapper_verification_summary.md
+  - *Status*: Updated with improved JSON response handling and document classification methods
+
+- [x] Implement complete main.py
+  - *Description*: Implement the main pipeline for the document classification system
+  - *Files*: src/main.py
+  - *Dependencies*: All core components
+  - *Test Results*: test_results/test_execution_summary.md
+  - *Status*: Implemented pipeline orchestration with document loading, classification, verification, and reporting
+
+- [x] Refactor output_formatter.py (if needed)
+  - *Description*: Refocus output formatter for document classification results
+  - *Files*: src/output_formatter.py
+  - *Dependencies*: results_visualizer.py
+  - *Status*: Reviewed and found compatible with document classification without significant changes needed
+
+## 📝 Phase 4: Testing & Reporting
+
+- [ ] Create test document set
+  - *Description*: Prepare 5-10 sample documents of various types
+  - *Files*: docs/test_documents/*
+  - *Dependencies*: None
+
+- [ ] Implement end-to-end test
+  - *Description*: Create test script for running the complete pipeline
+  - *Files*: test_document_classification.py
+  - *Dependencies*: All components
+
+- [ ] Generate test reports
+  - *Description*: Run system on test documents and generate reports
+  - *Files*: outputs/*
+  - *Dependencies*: End-to-end test
+
+- [ ] Document test results
+  - *Description*: Document the test results and any issues found
+  - *Files*: test_results.md
+  - *Dependencies*: Generate test reports
+
+## 📝 Phase 5: Optional Enhancements
+
+- [ ] Enhance prompt engineering
+  - *Description*: Refine classification prompts with more examples and better context
+  - *Files*: src/semantic_classifier.py
+  - *Dependencies*: Basic system working
+
+- [ ] Improve confidence scoring
+  - *Description*: Implement better confidence calibration and thresholds
+  - *Files*: src/semantic_classifier.py
+  - *Dependencies*: Basic system working
+
+- [ ] Support hierarchical document types
+  - *Description*: Add support for document type hierarchies and subcategories
+  - *Files*: config/document_types.yaml, src/semantic_classifier.py
+  - *Dependencies*: Basic system working
+
+- [ ] Implement human review interface
+  - *Description*: Add support for reviewing low-confidence classifications
+  - *Files*: src/human_review.py
+  - *Dependencies*: Basic system working
+
+## 📝 Completed Original Project Tasks
+
+### Setup & Project Kickoff
 - [x] Install Python 3.10+ and set up a virtual environment
 - [x] Install base libraries: `PyPDF2`, `python-docx`, `openpyxl`, `pandas`
 - [x] Install and run Ollama + download a model (Mistral-7B or Llama2-7B)
-- [x] Test sending prompt to LLM from Python (e.g., "Summarize this audit doc.")
+- [x] Test sending prompt to LLM from Python
 - [x] Create folder structure (`docs`, `outputs`, `scripts`, `config`)
 - [x] Push initial project to GitHub
 - [x] Write `README.md` (project vision, structure, timeline)
 
----
-
-## 🧾 Week 2: Document Handling
-
+### Document Handling
 - [x] Implement PDF text extraction
 - [x] Implement Word and Excel text extraction
-- [x] Normalize extracted content into one format (e.g., plain text with metadata)
+- [x] Normalize extracted content into one format
 - [x] Create mock document samples in `/docs/`
-- [x] Define checklist format for static audit completeness (`/config/checklist.yaml`)
 
-
----
-
-## 🧠 Week 3: LLM Integration (Static Checklist Mode)
-
+### LLM Integration
 - [x] Build document classifier to sort by type
-- [x] Build checklist validator (static rule-based)
-  - [x] Read `normalized_docs.json` and `checklist.yaml`
-  - [x] Match classified document types to checklist categories
-  - [x] For each category, scan for required keywords in content
-  - [x] Report results: ✓ complete / ✗ missing (per checklist item)
-- [x] Create Python wrapper for Ollama local LLM (for both static and dynamic modes)
-- [x] Develop prompt templates for static checklist analysis
-  - [x] Completeness check
-  - [x] Required fields verification
+- [x] Create Python wrapper for Ollama local LLM
 - [x] Parse LLM responses into structured JSON output
 - [x] Add error handling and response scoring
-- [x] Finalize static checklist validation loop
-- [x] Prepare static mode for integration with dynamic mode (unified interface/data structure)
-- [x] Define consistent output format for both static and dynamic modes
 
+## 📝 Progress Tracking
 
----
+- **Clean-up & Foundation**: 4 of 4 tasks completed (100%)
+- **Core Classifier System**: 7 of 7 tasks completed (100%)
+- **Integration & Refactoring**: 4 of 4 tasks completed (100%)
+- **Testing & Reporting**: 0 of 4 tasks completed (0%)
+- **Optional Enhancements**: 0 of 4 tasks completed (0%)
 
-## 🧠 Week 4: Policy-Driven Audit Analysis (Dynamic Mode)
+## 📝 Next Steps
 
-- [x] Build `policy_parser.py` to extract compliance requirements from a policy document using LLM
-- [x] Prompt LLM: "List all audit/compliance requirements from this document"
-- [x] Store extracted checklist dynamically (in memory or `/config/policy_requirements.yaml`)
-- [x] Feed audit documents + extracted rules into compliance evaluator
-- [x] Prompt LLM: "Does this doc satisfy requirement X? Y/N and explain"
-- [x] Generate full compliance matrix as output report
-- [x] Compare results of static vs. dynamic modes
-- [x] Integrate static and dynamic modes into a unified workflow
-- [x] Handle edge cases (e.g., LLM extraction failures, unmatched documents)
-- [x] Test dynamic mode with real/simulated documents
-- [x] Define and implement output format for compliance matrix (e.g., JSON, CSV, visual report)
-
----
-
-## 📈 Week 5: Polish & Delivery
-
-- [x] Finalize both static and policy-based compliance modes
-- [x] Add examples and screenshots to `README.md`
-- [x] Write clear usage guide (running static and policy modes)
-- [ ] Prepare for User Acceptance Testing
-  - [ ] Create test document set (2-3 policy documents, 3-5 audit documents)
-  - [ ] Prepare expected compliance results for validation
-  - [ ] Set up testing checklist with pass/fail criteria
-- [ ] Conduct User Acceptance Testing
-  - [ ] Test 1: Fresh installation following only README instructions
-  - [ ] Test 2: Document processing using static checklist mode
-  - [ ] Test 3: Policy requirement extraction using dynamic mode
-  - [ ] Test 4: Compliance evaluation of audit documents
-  - [ ] Test 5: Generating and reviewing compliance reports
-  - [ ] Test 6: Error handling with incorrect inputs
-  - [ ] Document all test results including screenshots
-- [ ] User Experience Evaluation
-  - [ ] Evaluate clarity of command interface
-  - [ ] Assess report readability and usefulness
-  - [ ] Measure time required for key operations
-  - [ ] Identify any confusing steps or unclear instructions
-- [ ] Optimize based on testing results
-  - [ ] Address issues discovered during testing
-  - [ ] Improve user instructions for complex steps
-  - [ ] Optimize prompt speed and chunking
-  - [ ] Enhance error messages for clarity
-- [ ] Prepare presentation or walkthrough (optional for TNO)
-- [ ] ✅ Done = Celebrate 🎉
-
-## 🔄 Ongoing
-
-- [ ] Log blockers and learning insights as Markdown checklist
-- [ ] Track future ideas (e.g. embedding-based search, dynamic UI, anomaly detection)
-- [ ] Review and reprioritize board at least weekly
-
-## Core Features
-- [x] Implement static mode document processing
-- [x] Implement dynamic mode document processing
-- [x] Create unified workflow manager
-- [x] Handle edge cases (e.g., LLM extraction failures, unmatched documents)
-
-## Integration Tasks
-- [ ] Integrate with external compliance databases
-- [ ] Implement real-time monitoring and alerts
-- [ ] Add support for custom compliance rules
-
-## Testing & Quality Assurance
-- [x] Create comprehensive test suite
-- [x] Implement performance benchmarking
-- [ ] Add automated regression testing
-
-## Documentation & Maintenance
-- [ ] Create user documentation
-- [ ] Document API endpoints
-- [ ] Set up automated deployment pipeline
+1. ✅ Completed Phase 1 (Clean-up & Foundation)
+2. ✅ Completed Phase 2 (Core Classifier System)
+   - Core components implemented
+   - Tests verified and execution-ready (see test_results/test_execution_summary.md)
+   - Cleanup tasks completed
+3. ✅ Completed Phase 3 (Integration & Refactoring)
+   - Document processor updated for robust text extraction
+   - LLM wrapper refactored for document classification
+   - Main.py pipeline implemented with all components
+   - Output formatter reviewed and verified
+   - All tests executed and verified (see test_results/test_execution_summary.md)
+4. 🔄 Ready to begin Phase 4 (Testing & Reporting)
+   - Need to create test document set
+   - Implement end-to-end testing
+   - Generate and document test reports
+5. Phase 5 (Optional Enhancements) will be implemented as time permits
