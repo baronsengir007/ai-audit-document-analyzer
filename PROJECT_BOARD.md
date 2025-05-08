@@ -64,7 +64,7 @@
 
 - [x] Finalize both static and policy-based compliance modes
 - [x] Add examples and screenshots to `README.md`
-- [ ] Write clear usage guide (running static and policy modes)
+- [x] Write clear usage guide (running static and policy modes)
 - [ ] Prepare for User Acceptance Testing
   - [ ] Create test document set (2-3 policy documents, 3-5 audit documents)
   - [ ] Prepare expected compliance results for validation
