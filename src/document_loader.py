@@ -14,23 +14,26 @@ DOC_TYPES = {
 
 def load_and_normalize_documents(folder_path):
     normalized_docs = []
+    
+    # Walk through all subdirectories recursively
+    for root, dirs, files in os.walk(folder_path):
+        for file in files:
+            file_path = Path(root) / file
+            ext = file_path.suffix.lower()
 
-    for file in os.listdir(folder_path):
-        file_path = Path(folder_path) / file
-        ext = file_path.suffix.lower()
-
-        if ext in DOC_TYPES:
-            doc_type, extractor_func = DOC_TYPES[ext]
-            try:
-                content = extractor_func(str(file_path))
-                normalized_docs.append({
-                    "filename": file,
-                    "type": doc_type,
-                    "content": content
-                })
-                print(f"Loaded: {file} ({doc_type})")
-            except Exception as e:
-                print(f"Error processing {file}: {e}")
+            if ext in DOC_TYPES:
+                doc_type, extractor_func = DOC_TYPES[ext]
+                try:
+                    content = extractor_func(str(file_path))
+                    normalized_docs.append({
+                        "filename": file,
+                        "type": doc_type,
+                        "content": content,
+                        "path": str(file_path)
+                    })
+                    print(f"Loaded: {file} ({doc_type})")
+                except Exception as e:
+                    print(f"Error processing {file}: {e}")
 
     return normalized_docs
 

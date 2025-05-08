@@ -31,11 +31,23 @@ class DocumentClassifier:
         # Convert content to lowercase for case-insensitive matching
         content_lower = content.lower()
         
+        # Check filename first for better accuracy
+        filename = document.filename if isinstance(document, Document) else document.get('filename', '')
+        filename_lower = filename.lower()
+        
+        # If filename contains policy, classify as policy_requirements
+        if filename_lower and any(kw in filename_lower for kw in ["policy", "policies", "requirement"]):
+            return "policy_requirements"
+            
         # Use simple keyword matching to determine document type
         if any(kw in content_lower for kw in ["invoice", "payment", "amount", "total", "bill"]):
             return "invoice"
         
-        if any(kw in content_lower for kw in ["questionnaire", "audit", "response", "compliance"]):
+        # Check for policy requirements first (more specific)
+        if any(kw in content_lower for kw in ["policy document", "security policy", "password policy"]):
+            return "policy_requirements"
+        
+        if any(kw in content_lower for kw in ["questionnaire", "audit", "assessment", "response"]):
             return "audit_rfi"
             
         if any(kw in content_lower for kw in ["project", "timeline", "milestone", "deliverable"]):

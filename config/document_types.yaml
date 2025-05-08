@@ -1,0 +1,77 @@
+# Document Types Configuration
+# This file defines document types that the system classifies documents into
+# Each document type includes a description and example content that helps the LLM
+# identify documents of this type based on their semantic content.
+
+document_types:
+  - id: privacy_policy
+    name: "Privacy Policy"
+    description: "Document explaining how user data is collected, used, and protected"
+    required: true
+    examples:
+      - "We collect the following types of personal information..."
+      - "Your data is processed according to the following principles..."
+      - "You have the right to access and delete your personal data..."
+
+  - id: data_processing_agreement
+    name: "Data Processing Agreement (DPA)"
+    description: "Legal contract between data controller and processor regarding handling of personal data"
+    required: true
+    examples:
+      - "The Processor shall process the Personal Data only on documented instructions from the Controller..."
+      - "The Processor shall ensure that persons authorized to process the Personal Data..."
+      - "The Processor shall implement appropriate technical and organizational measures to ensure security..."
+
+  - id: security_policy
+    name: "Information Security Policy"
+    description: "Document outlining security controls, practices, and responsibilities"
+    required: true
+    examples:
+      - "Access control measures include multi-factor authentication..."
+      - "Data shall be encrypted both in transit and at rest..."
+      - "Security incidents must be reported within 24 hours..."
+
+  - id: acceptable_use_policy
+    name: "Acceptable Use Policy"
+    description: "Document defining acceptable use of company IT resources and systems"
+    required: true
+    examples:
+      - "Company resources shall only be used for authorized business purposes..."
+      - "Employees shall not use company systems to access inappropriate content..."
+      - "Software must not be installed without approval from IT department..."
+
+  - id: incident_response_plan
+    name: "Incident Response Plan"
+    description: "Document outlining procedures for responding to security incidents"
+    required: true
+    examples:
+      - "The incident response team shall be notified immediately upon discovery..."
+      - "Incidents shall be categorized according to the following severity levels..."
+      - "Evidence must be preserved according to the following procedures..."
+
+  - id: vendor_assessment
+    name: "Vendor Security Assessment"
+    description: "Document evaluating security practices of third-party vendors"
+    required: false
+    examples:
+      - "The vendor has implemented the following security controls..."
+      - "Vendor access to systems is restricted using the principle of least privilege..."
+      - "The vendor maintains the following certifications: SOC 2, ISO 27001..."
+
+  - id: audit_report
+    name: "Security Audit Report"
+    description: "Document containing findings from security audits or assessments"
+    required: false
+    examples:
+      - "The following vulnerabilities were identified during testing..."
+      - "Controls were evaluated against the following frameworks: NIST, ISO 27001..."
+      - "Recommendations for remediation include implementing additional controls for..."
+
+  - id: business_continuity_plan
+    name: "Business Continuity Plan"
+    description: "Document outlining procedures for maintaining business operations during disruptions"
+    required: false
+    examples:
+      - "In the event of a disaster, the following recovery procedures shall be implemented..."
+      - "Critical systems shall be restored according to the following priority order..."
+      - "Regular testing of the business continuity plan shall be conducted annually..."

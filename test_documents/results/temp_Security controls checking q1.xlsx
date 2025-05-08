@@ -1,0 +1,36 @@
+Control Category | Control ID | Control Description | Implementation Status | Last Verified | Compliance Status | Remediation Plan | Owner
+Access Control | AC-1 | Role-based access control implementation | Implemented | 2025-02-15 00:00:00 | Compliant | N/A | IT Security
+Access Control | AC-2 | Least privilege enforcement | Partially Implemented | 2025-02-15 00:00:00 | Partially Compliant | Complete role definitions for Marketing dept by 5/1/2025 | IT Security
+Access Control | AC-3 | Quarterly user access reviews | Partially Implemented | 2025-02-10 00:00:00 | Partially Compliant | Two departments missed reviews - schedule makeup sessions by 4/15/2025 | Department Managers
+Access Control | AC-4 | Terminated user account deactivation | Implemented | 2025-03-01 00:00:00 | Compliant | N/A | Human Resources
+Access Control | AC-5 | Multi-factor authentication for privileged accounts | Partially Implemented | 2025-03-10 00:00:00 | Partially Compliant | Deploy MFA to remaining admin accounts by 4/30/2025 | IT Operations
+Access Control | AC-6 | Service account documentation and review | Not Implemented | 2025-01-15 00:00:00 | Non-Compliant | Complete documentation refresh by 5/15/2025 | IT Operations
+Password Management | PM-1 | 12-character minimum password length | Implemented | 2025-03-05 00:00:00 | Compliant | N/A | IT Security
+Password Management | PM-2 | Password complexity requirements | Implemented | 2025-03-05 00:00:00 | Compliant | N/A | IT Security
+Password Management | PM-3 | Password history (10 previous passwords) | Partially Implemented | 2025-03-05 00:00:00 | Partially Compliant | Update configuration from 6 to 10 passwords by 4/15/2025 | IT Security
+Password Management | PM-4 | 90-day password expiration | Implemented | 2025-03-05 00:00:00 | Compliant | N/A | IT Security
+Password Management | PM-5 | Account lockout after 5 failed attempts | Implemented | 2025-03-05 00:00:00 | Compliant | N/A | IT Security
+Password Management | PM-6 | Temporary password change enforcement | Implemented | 2025-03-05 00:00:00 | Compliant | N/A | IT Security
+Data Protection | DP-1 | Encryption for data in transit | Implemented | 2025-02-20 00:00:00 | Compliant | N/A | IT Security
+Data Protection | DP-2 | Encryption for data at rest | Partially Implemented | 2025-02-20 00:00:00 | Partially Compliant | Encrypt remaining storage locations by 5/31/2025 | IT Operations
+Data Protection | DP-3 | Data classification and labeling | Partially Implemented | 2025-02-25 00:00:00 | Partially Compliant | Train teams on classification requirements by 4/30/2025 | Information Security
+Data Protection | DP-4 | Data transfer approvals and encryption | Partially Implemented | 2025-02-25 00:00:00 | Partially Compliant | Implement verification process by 5/15/2025 | Information Security
+Data Protection | DP-5 | Media sanitization procedures | Implemented | 2025-03-01 00:00:00 | Compliant | N/A | IT Operations
+Data Protection | DP-6 | Backup testing and verification | Partially Implemented | 2025-01-10 00:00:00 | Partially Compliant | Schedule recovery test by 4/15/2025 | IT Operations
+Data Protection | DP-7 | Data retention compliance | Implemented | 2025-02-15 00:00:00 | Compliant | N/A | Legal & Compliance
+Incident Response | IR-1 | Security incident reporting procedures | Implemented | 2025-03-15 00:00:00 | Compliant | N/A | Information Security
+Incident Response | IR-2 | Annual incident response plan testing | Not Implemented | 2024-01-15 00:00:00 | Non-Compliant | Schedule test for 4/25/2025 | Information Security
+Incident Response | IR-3 | Defined roles and responsibilities | Partially Implemented | 2025-03-15 00:00:00 | Partially Compliant | Update documentation by 4/15/2025 | Information Security
+Incident Response | IR-4 | Post-incident reviews | Partially Implemented | 2025-03-15 00:00:00 | Partially Compliant | Standardize documentation process by 4/30/2025 | Information Security
+Incident Response | IR-5 | Evidence preservation procedures | Implemented | 2025-03-15 00:00:00 | Compliant | N/A | Information Security
+System Security | SS-1 | Anti-malware protection | Implemented | 2025-03-10 00:00:00 | Compliant | N/A | IT Operations
+System Security | SS-2 | Operating system and application patches | Partially Implemented | 2025-03-10 00:00:00 | Partially Compliant | Complete patching for non-critical systems by 4/30/2025 | IT Operations
+System Security | SS-3 | Vulnerability remediation | Partially Implemented | 2025-03-10 00:00:00 | Partially Compliant | Address medium-risk findings by 5/15/2025 | IT Security
+System Security | SS-4 | Annual penetration testing | Partially Implemented | 2024-10-15 00:00:00 | Partially Compliant | Schedule pending tests by 4/15/2025 | Information Security
+System Security | SS-5 | Host-based firewalls | Partially Implemented | 2025-03-05 00:00:00 | Partially Compliant | Enable on remaining servers by 4/15/2025 | IT Operations
+System Security | SS-6 | Secure remote access | Implemented | 2025-03-05 00:00:00 | Compliant | N/A | IT Security
+Compliance and Auditing | CA-1 | Security-relevant event logging | Partially Implemented | 2025-03-01 00:00:00 | Partially Compliant | Standardize logging across all systems by 5/31/2025 | IT Operations
+Compliance and Auditing | CA-2 | Log protection | Implemented | 2025-03-01 00:00:00 | Compliant | N/A | IT Security
+Compliance and Auditing | CA-3 | Regular security compliance reviews | Partially Implemented | 2025-01-20 00:00:00 | Partially Compliant | Implement quarterly review schedule by 4/30/2025 | Compliance
+Compliance and Auditing | CA-4 | Third-party security compliance | Implemented | 2025-02-10 00:00:00 | Compliant | N/A | Procurement
+Compliance and Auditing | CA-5 | Security policy exceptions | Partially Implemented | 2025-02-10 00:00:00 | Partially Compliant | Review and update exceptions by 4/30/2025 | Information Security

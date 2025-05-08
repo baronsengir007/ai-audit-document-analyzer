@@ -1,0 +1,47 @@
+# SECURITY PROCEDURES 
+Version 1.0 | Last Updated: June 12, 2023 
+ 
+## Introduc Ɵon 
+ 
+This document outlines the security procedures for TNO systems and data. All employees should 
+follow these guidelines to ensure informa Ɵon security.  
+ 
+## Access Management 
+ 
+1. Users should select secure passwords for their accounts. 
+2. Administrator passwords should be at least 8 characters long and include a mix of le Ʃers and 
+numbers. 
+3. System access should be reviewed periodically by department managers. 
+4. When employees leave the company, their accounts should be disabled. 
+5. Shared administrator accounts may be used for emergency access to cri Ɵcal systems.  
+ 
+## Data Handling 
+ 
+1. Conﬁden Ɵal data should be protected with appropriate measures.  
+2. When transferring sensi Ɵve informa Ɵon, users should consider encryp Ɵon opƟons. 
+3. Department managers are responsible for determining which data needs to be backed up. 
+4. Old ﬁles should be removed when no longer needed. 
+5. Data should be retained according to departmental needs. 
+ 
+## System Security 
+ 
+1. Systems should have an Ɵvirus soŌware installed where possible.  
+2. CriƟcal security patches should be applied within 90 days.  
+3. Standard users should not have administra Ɵve privileges.  
+4. Remote access to company systems should use VPN when available. 
+5. Local system passwords can be reset by the helpdesk on request.  
+## Incident Handling 
+ 
+1. Users should report suspicious ac ƟviƟes to their supervisor.  
+2. IT staﬀ will inves Ɵgate security concerns as they arise.  
+3. Records of major security incidents should be maintained. 
+4. Department heads should be no Ɵﬁed of security breaches aﬀec Ɵng their area.  
+ 
+## Compliance 
+ 
+1. These procedures should be followed by all employees. 
+2. ExcepƟons may be granted with manager approval.  
+3. The IT department is responsible for security implementa Ɵon. 
+ 
+Contact the IT helpdesk for any ques Ɵons regarding these procedures.  
+ 

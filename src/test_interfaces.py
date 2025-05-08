@@ -1,3 +1,7 @@
+"""
+Test suite for core interfaces and data types.
+"""
+
 import unittest
 from pathlib import Path
 import tempfile
@@ -6,9 +10,13 @@ import json
 import time
 from datetime import datetime
 
-from interfaces import (
+from src.interfaces import (
     Document,
+    ComplianceResult,
     ValidationResult,
+    DocumentProcessor,
+    ValidationStrategy,
+    ValidationMode,
     ValidationResultSerializer,
     StaticDocumentProcessor,
     StaticValidationStrategy,
