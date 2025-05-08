@@ -127,21 +127,46 @@ This project has been refocused from compliance requirement extraction to semant
   - *Description*: Prepare 5-10 sample documents of various types
   - *Files*: docs/test_documents/*
   - *Dependencies*: None
+  - *Timeline*: 2-3 days
+  - *Tasks*:
+    - [ ] Collect sample documents from different sources
+    - [ ] Create document type variations
+    - [ ] Document metadata and expected classifications
 
 - [ ] Implement end-to-end test
   - *Description*: Create test script for running the complete pipeline
   - *Files*: test_document_classification.py
   - *Dependencies*: All components
+  - *Timeline*: 2-3 days
+  - *Tasks*:
+    - [ ] Create test configuration
+    - [ ] Implement test scenarios
+    - [ ] Add validation checks
+    - [ ] Set up test environment
 
 - [ ] Generate test reports
   - *Description*: Run system on test documents and generate reports
   - *Files*: outputs/*
   - *Dependencies*: End-to-end test
+  - *Timeline*: 1-2 days
+  - *Tasks*:
+    - [ ] Run full test suite
+    - [ ] Generate HTML reports
+    - [ ] Create JSON output
+    - [ ] Validate report formats
 
 - [ ] Document test results
   - *Description*: Document the test results and any issues found
   - *Files*: test_results.md
   - *Dependencies*: Generate test reports
+  - *Timeline*: 1-2 days
+  - *Tasks*:
+    - [ ] Analyze test results
+    - [ ] Document findings
+    - [ ] Create improvement recommendations
+    - [ ] Update project documentation
+
+*Total Phase 4 Timeline*: 6-10 days
 
 ## 📝 Phase 5: Optional Enhancements
 
@@ -193,7 +218,7 @@ This project has been refocused from compliance requirement extraction to semant
 - **Clean-up & Foundation**: 4 of 4 tasks completed (100%)
 - **Core Classifier System**: 7 of 7 tasks completed (100%)
 - **Integration & Refactoring**: 4 of 4 tasks completed (100%)
-- **Testing & Reporting**: 0 of 4 tasks completed (0%)
+- **Testing & Reporting**: 0 of 4 tasks completed (0%) - In Progress
 - **Optional Enhancements**: 0 of 4 tasks completed (0%)
 
 ## 📝 Next Steps
@@ -209,8 +234,9 @@ This project has been refocused from compliance requirement extraction to semant
    - Main.py pipeline implemented with all components
    - Output formatter reviewed and verified
    - All tests executed and verified (see test_results/test_execution_summary.md)
-4. 🔄 Ready to begin Phase 4 (Testing & Reporting)
-   - Need to create test document set
-   - Implement end-to-end testing
-   - Generate and document test reports
+4. 🔄 Starting Phase 4 (Testing & Reporting) - Week of March 18, 2024
+   - Creating test document set (Priority 1)
+   - Implementing end-to-end tests (Priority 2)
+   - Generating and documenting test reports (Priority 3)
+   - Expected completion: March 28, 2024
 5. Phase 5 (Optional Enhancements) will be implemented as time permits
