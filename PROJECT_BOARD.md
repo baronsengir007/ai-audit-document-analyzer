@@ -65,17 +65,11 @@
 - [x] Finalize both static and policy-based compliance modes
 - [x] Add examples and screenshots to `README.md`
 - [ ] Write clear usage guide (running static and policy modes)
-- [ ] Full run-through test on 3-5 real/simulated documents
-- [ ] Optimize prompt speed, chunking, and UX
-- [ ] Prepare presentation or walkthrough (optional for TNO)
-- [ ] ✅ Done = Celebrate 🎉
-
 - [ ] Prepare for User Acceptance Testing
   - [ ] Create test document set (2-3 policy documents, 3-5 audit documents)
   - [ ] Prepare expected compliance results for validation
   - [ ] Set up testing checklist with pass/fail criteria
-
-- [ ] Conduct User Acceptance Testing (outside development environment)
+- [ ] Conduct User Acceptance Testing
   - [ ] Test 1: Fresh installation following only README instructions
   - [ ] Test 2: Document processing using static checklist mode
   - [ ] Test 3: Policy requirement extraction using dynamic mode
@@ -83,21 +77,18 @@
   - [ ] Test 5: Generating and reviewing compliance reports
   - [ ] Test 6: Error handling with incorrect inputs
   - [ ] Document all test results including screenshots
-
 - [ ] User Experience Evaluation
   - [ ] Evaluate clarity of command interface
   - [ ] Assess report readability and usefulness
   - [ ] Measure time required for key operations
   - [ ] Identify any confusing steps or unclear instructions
-  - [ ] Update documentation based on testing experience
-
-- [ ] Final Adjustments Based on Testing
-  - [ ] Address any issues discovered during testing
+- [ ] Optimize based on testing results
+  - [ ] Address issues discovered during testing
   - [ ] Improve user instructions for complex steps
-  - [ ] Optimize performance if needed
+  - [ ] Optimize prompt speed and chunking
   - [ ] Enhance error messages for clarity
-
----
+- [ ] Prepare presentation or walkthrough (optional for TNO)
+- [ ] ✅ Done = Celebrate 🎉
 
 ## 🔄 Ongoing
 
