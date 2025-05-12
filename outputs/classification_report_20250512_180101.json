@@ -1,0 +1,118 @@
+{
+  "report_type": "document_classification",
+  "timestamp": "2025-05-12T18:01:01.987110",
+  "verification_result": {
+    "found_types": [],
+    "missing_types": [
+      {
+        "id": "privacy_policy",
+        "name": "Privacy Policy",
+        "required": true,
+        "description": "Document explaining how user data is collected, used, and protected"
+      },
+      {
+        "id": "data_processing_agreement",
+        "name": "Data Processing Agreement (DPA)",
+        "required": true,
+        "description": "Legal contract between data controller and processor regarding handling of personal data"
+      },
+      {
+        "id": "security_policy",
+        "name": "Information Security Policy",
+        "required": true,
+        "description": "Document outlining security controls, practices, and responsibilities"
+      },
+      {
+        "id": "acceptable_use_policy",
+        "name": "Acceptable Use Policy",
+        "required": true,
+        "description": "Document defining acceptable use of company IT resources and systems"
+      },
+      {
+        "id": "incident_response_plan",
+        "name": "Incident Response Plan",
+        "required": true,
+        "description": "Document outlining procedures for responding to security incidents"
+      }
+    ],
+    "extra_types": [],
+    "coverage": 0.0,
+    "documents_by_type": {},
+    "unclassified_documents": [
+      {
+        "filename": "KPN FEB 2025.pdf",
+        "type_id": "unknown",
+        "confidence": 0.0
+      },
+      {
+        "filename": "KPN JAN 2025.pdf",
+        "type_id": "unknown",
+        "confidence": 0.0
+      },
+      {
+        "filename": "KPN MAR 2025.pdf",
+        "type_id": "unknown",
+        "confidence": 0.0
+      },
+      {
+        "filename": "pm-Project Alpha.xlsx",
+        "type_id": "unknown",
+        "confidence": 0.0
+      },
+      {
+        "filename": "Request for Information Alpha.docx",
+        "type_id": "unknown",
+        "confidence": 0.0
+      }
+    ],
+    "total_documents": 5,
+    "total_required_types": 5,
+    "total_found_required_types": 0,
+    "total_missing_types": 5,
+    "total_extra_types": 0,
+    "unclassified_count": 5,
+    "confidence_threshold": 0.7
+  },
+  "documents_by_type": {
+    "unknown": [
+      {
+        "filename": "KPN FEB 2025.pdf",
+        "confidence": 0.0,
+        "rationale": "Error during classification: LLM request timed out. Please ensure Ollama is running and not overloaded.",
+        "evidence": []
+      },
+      {
+        "filename": "KPN JAN 2025.pdf",
+        "confidence": 0.0,
+        "rationale": "Error during classification: LLM request timed out. Please ensure Ollama is running and not overloaded.",
+        "evidence": []
+      },
+      {
+        "filename": "KPN MAR 2025.pdf",
+        "confidence": 0.0,
+        "rationale": "Error during classification: LLM request timed out. Please ensure Ollama is running and not overloaded.",
+        "evidence": []
+      },
+      {
+        "filename": "pm-Project Alpha.xlsx",
+        "confidence": 0.0,
+        "rationale": "Error during classification: LLM request timed out. Please ensure Ollama is running and not overloaded.",
+        "evidence": []
+      },
+      {
+        "filename": "Request for Information Alpha.docx",
+        "confidence": 0.0,
+        "rationale": "Error during classification: LLM request timed out. Please ensure Ollama is running and not overloaded.",
+        "evidence": []
+      }
+    ]
+  },
+  "summary": {
+    "total_documents": 5,
+    "total_required_types": 5,
+    "total_found_required_types": 0,
+    "total_missing_types": 5,
+    "coverage_percentage": 0.0,
+    "confidence_threshold": 0.7
+  }
+}

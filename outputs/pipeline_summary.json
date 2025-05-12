@@ -1,0 +1,19 @@
+{
+  "start_time": "2025-05-12T18:10:11.896432",
+  "end_time": "2025-05-12T18:10:11.908925",
+  "duration_seconds": 0.012493,
+  "documents_processed": 5,
+  "documents_classified": 5,
+  "required_types_found": 0,
+  "required_types_missing": 5,
+  "coverage_percentage": 0.0,
+  "performance_metrics": {
+    "document_processing_seconds": 0.0029103755950927734,
+    "classification_seconds": 0.003973245620727539,
+    "verification_seconds": 0.0,
+    "reporting_seconds": 0.005608797073364258
+  },
+  "report_paths": {
+    "json": "outputs\\classification_report_20250512_181011.json"
+  }
+}
